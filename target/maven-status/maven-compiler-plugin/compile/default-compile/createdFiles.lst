@@ -11,6 +11,7 @@ com/cegb03/metodos/igu/LR/A/SecanteFrame.class
 com/cegb03/metodos/logica/LocRaices/Abiertos/SecanteCode.class
 com/cegb03/metodos/igu/LR/A/PuntoFijoFrame.class
 com/cegb03/metodos/igu/LR/C/BiseccionFrame.class
+com/cegb03/metodos/logica/Derivar.class
 com/cegb03/metodos/MetodosNumericos.class
 com/cegb03/metodos/igu/LR/C/BiseccionFrame$2.class
 com/cegb03/metodos/igu/LR/A/PuntoFijoFrame$3.class
