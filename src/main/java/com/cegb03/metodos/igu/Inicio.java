@@ -2,6 +2,7 @@ package com.cegb03.metodos.igu;
 
 import com.cegb03.metodos.igu.LR.A.*;
 import com.cegb03.metodos.igu.LR.C.*;
+import com.cegb03.metodos.igu.SEL.EliminacionGaussianaFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
@@ -18,10 +19,11 @@ public class Inicio extends javax.swing.JFrame {
 
     // Crear un JComboBox para seleccionar el Tipo de Localizacion
     JComboBox<String> comboBoxLocRaices = new JComboBox<>();
+    JComboBox<String> comboBoxSisEcuaLin = new JComboBox<>();
 
     // Crear JComboBox para seleccionar el nombre del metodo
     JComboBox<String> comboBoxMetodosDisponibles = new JComboBox<>();
-    String[] metodos = {"Biseccion", "Regula Falsi", "Punto Fijo", "Newton-Rapson", "Tangente"};
+    String[] metodos = {"Biseccion", "Regula Falsi", "Punto Fijo", "Newton-Rapson", "Tangente", "Eliminacion Gaussiana", "Jacobi", "Gauss-Seidel"};
     
     /**
      * Creates new form Inicio
@@ -32,6 +34,12 @@ public class Inicio extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 actualizarSeleccion(comboBoxMetodosDisponibles, metodos, comboBoxLocRaices);
+            }
+        });
+        comboBoxSisEcuaLin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                actualizarSeleccion(comboBoxMetodosDisponibles, metodos, comboBoxSisEcuaLin);
             }
         });
     }
@@ -47,6 +55,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnLocRaices = new javax.swing.JButton();
+        btnSisEcuLin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,21 +66,32 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        btnSisEcuLin.setText("Sis Ecu Lin");
+        btnSisEcuLin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSisEcuLinActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnLocRaices)
-                .addContainerGap(294, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLocRaices)
+                    .addComponent(btnSisEcuLin))
+                .addContainerGap(292, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnLocRaices)
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSisEcuLin)
+                .addContainerGap(236, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -140,17 +160,75 @@ public class Inicio extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Ninguna conincidencia entre el tipo de metodo " + nombreTipoMetodo + " y el metodo " + metodoSelect + " seleccionado");
         }
     }//GEN-LAST:event_btnLocRaicesActionPerformed
-    private void actualizarSeleccion(JComboBox comboBoxMetodosDisponibles, String[] metodos, JComboBox comboBoxLocRaices){
+
+    private void btnSisEcuLinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSisEcuLinActionPerformed
+        comboBoxSisEcuaLin.removeAllItems();
+        comboBoxSisEcuaLin.addItem("Metodos Sistema de Ecuaciones Algebraicas Lineales");
+        comboBoxSisEcuaLin.addItem("Metodos Iterativos para Sistemas de Ecuaciones Lineales");
         
-        if (((String) comboBoxLocRaices.getSelectedItem()).equals("Metodos Cerrados")) {
-            comboBoxMetodosDisponibles.removeAllItems();
-            for (int i = 0; i < 2; i++) {
-                comboBoxMetodosDisponibles.addItem(metodos[i]);
+        // Crear un panel para contener los componentes
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.add(new JLabel("Seleccione el tipo:"));
+        panel.add(comboBoxSisEcuaLin);
+        panel.add(new JLabel("Seleccione el metodo:"));
+        panel.add(comboBoxMetodosDisponibles);
+        
+        // Mostrar el cuadro de diálogo y capturar la respuesta del usuario
+        int result = JOptionPane.showConfirmDialog(null, panel, "Ingrese el metodo a usar", JOptionPane.OK_CANCEL_OPTION);
+        
+        // Verificar si el usuario presionó "Aceptar" (OK)
+        if (result == JOptionPane.OK_OPTION) {
+            // Obtener el nombre del metodo seleccionado del JComboBox
+            String nombreTipoMetodo = (String) comboBoxSisEcuaLin.getSelectedItem();
+            // Obtener el metodo seleccionado
+            String metodoSelect = (String) comboBoxMetodosDisponibles.getSelectedItem();
+            if ( nombreTipoMetodo.equals(comboBoxSisEcuaLin.getItemAt(0)) ){
+                if ( metodoSelect.equals(metodos[5]) ){
+                    EliminacionGaussianaFrame eliminacionGaussianaFrame = new EliminacionGaussianaFrame();
+                    eliminacionGaussianaFrame.setVisible(true);
+                    eliminacionGaussianaFrame.setLocationRelativeTo(null);
+                }
+                else
+                    JOptionPane.showMessageDialog(this, "No hay metodo coincidente");
+            }else if ( nombreTipoMetodo.equals(comboBoxSisEcuaLin.getItemAt(1)) ){
+                if ( metodoSelect.equals(metodos[6]) ){
+                    // Jacobi
+                    JOptionPane.showMessageDialog(this, "No hay metodo cargado todavia...");
+                }
+                else if( metodoSelect.equals(metodos[7]) ){
+                    // Gauss-Seidel
+                    JOptionPane.showMessageDialog(this, "No hay metodo cargado todavia...");
+                }else
+                    JOptionPane.showMessageDialog(this, "No hay metodo coincidente");
+            }else
+                JOptionPane.showMessageDialog(this, "Ninguna conincidencia entre el tipo de metodo " + nombreTipoMetodo + " y el metodo " + metodoSelect + " seleccionado");
+        }
+    }//GEN-LAST:event_btnSisEcuLinActionPerformed
+    private void actualizarSeleccion(JComboBox comboBoxMetodosDisponibles, String[] metodos, JComboBox comboBoxMetodos){
+        
+        switch ((String) comboBoxMetodos.getSelectedItem()) {
+            case "Metodos Cerrados" -> {
+                comboBoxMetodosDisponibles.removeAllItems();
+                for (int i = 0; i < 2; i++) 
+                    comboBoxMetodosDisponibles.addItem(metodos[i]);
             }
-        }if (((String) comboBoxLocRaices.getSelectedItem()).equals("Metodos Abiertos")) {
-            comboBoxMetodosDisponibles.removeAllItems();
-            for (int i = 2; i < 5; i++) {
-                comboBoxMetodosDisponibles.addItem(metodos[i]);
+            case "Metodos Abiertos" -> {
+                comboBoxMetodosDisponibles.removeAllItems();
+                for (int i = 2; i < 5; i++) 
+                    comboBoxMetodosDisponibles.addItem(metodos[i]);
+            }
+            case "Metodos Sistema de Ecuaciones Algebraicas Lineales" -> {
+                comboBoxMetodosDisponibles.removeAllItems();
+                for (int i = 5; i < 6; i++) 
+                    comboBoxMetodosDisponibles.addItem(metodos[i]);
+            }
+            case "Metodos Iterativos para Sistemas de Ecuaciones Lineales" -> {
+                comboBoxMetodosDisponibles.removeAllItems();
+                for (int i = 6; i < 8; i++) 
+                    comboBoxMetodosDisponibles.addItem(metodos[i]);
+            }   
+            default -> {
             }
         }
         
@@ -158,6 +236,7 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLocRaices;
+    private javax.swing.JButton btnSisEcuLin;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
