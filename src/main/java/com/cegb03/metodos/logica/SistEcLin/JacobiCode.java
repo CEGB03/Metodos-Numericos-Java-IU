@@ -28,9 +28,9 @@ public class JacobiCode {
         imprimir();
         Pibot pibot = new Pibot(A, b, filas);
         pibot.pibotear();
-        pibot.triangulacionConPivot();
-//        imprimir();
-//        pibot.pivoteo_GPT();
+//        pibot.triangulacionConPivot();
+        imprimir();
+        pibot.pivoteo_GPT();
         imprimir();
     }
     public String eliminar(){
