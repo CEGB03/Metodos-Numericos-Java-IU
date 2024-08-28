@@ -81,7 +81,7 @@ public class Pibot {
             }
         }
     }
-    /*
+    
     public void pivoteo_GPT(){
         for (int i = 0; i < filas - 1; i++) {
             int p = i;
@@ -114,7 +114,7 @@ public class Pibot {
         }
 
     }
-*/
+    
     // Función para imprimir una matriz
     public static void imprimirMatriz(Double[][] matriz) {
         for (int i = 0; i < matriz.length; i++) {

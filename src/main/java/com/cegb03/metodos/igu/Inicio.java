@@ -2,7 +2,7 @@ package com.cegb03.metodos.igu;
 
 import com.cegb03.metodos.igu.LR.A.*;
 import com.cegb03.metodos.igu.LR.C.*;
-import com.cegb03.metodos.igu.SEL.EliminacionGaussianaFrame;
+import com.cegb03.metodos.igu.SEL.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
@@ -194,11 +194,15 @@ public class Inicio extends javax.swing.JFrame {
             }else if ( nombreTipoMetodo.equals(comboBoxSisEcuaLin.getItemAt(1)) ){
                 if ( metodoSelect.equals(metodos[6]) ){
                     // Jacobi
-                    JOptionPane.showMessageDialog(this, "No hay metodo cargado todavia...");
+                    JacobiFrame JacobiFrame = new JacobiFrame();
+                    JacobiFrame.setVisible(true);
+                    JacobiFrame.setLocationRelativeTo(null);
                 }
                 else if( metodoSelect.equals(metodos[7]) ){
                     // Gauss-Seidel
-                    JOptionPane.showMessageDialog(this, "No hay metodo cargado todavia...");
+                    GaussSeidelFrame gaussSeidelFrame = new GaussSeidelFrame();
+                    gaussSeidelFrame.setVisible(true);
+                    gaussSeidelFrame.setLocationRelativeTo(null);
                 }else
                     JOptionPane.showMessageDialog(this, "No hay metodo coincidente");
             }else
