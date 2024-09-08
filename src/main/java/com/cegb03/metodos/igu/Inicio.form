@@ -43,8 +43,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnLocRaices" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="btnSisEcuLin" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnInterpolacion" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="292" max="32767" attributes="0"/>
+                  <EmptySpace pref="281" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -55,7 +56,9 @@
                   <Component id="btnLocRaices" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnSisEcuLin" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="236" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnInterpolacion" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="207" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -75,6 +78,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSisEcuLinActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnInterpolacion">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Interpolacion"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInterpolacionActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

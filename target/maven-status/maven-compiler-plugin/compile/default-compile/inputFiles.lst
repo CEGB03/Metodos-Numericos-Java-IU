@@ -9,6 +9,7 @@
 /home/cegb03/Documentos/Programacion/Repos/Metodos-Numericos-Java-IU/src/main/java/com/cegb03/metodos/logica/SistEcLin/GaussSeidelCode.java
 /home/cegb03/Documentos/Programacion/Repos/Metodos-Numericos-Java-IU/src/main/java/com/cegb03/metodos/logica/Pibot.java
 /home/cegb03/Documentos/Programacion/Repos/Metodos-Numericos-Java-IU/src/main/java/com/cegb03/metodos/logica/LocRaices/Abiertos/PuntoFijoCode.java
+/home/cegb03/Documentos/Programacion/Repos/Metodos-Numericos-Java-IU/src/main/java/com/cegb03/metodos/logica/Interpolaciones/LagrangeCode.java
 /home/cegb03/Documentos/Programacion/Repos/Metodos-Numericos-Java-IU/src/main/java/com/cegb03/metodos/MetodosNumericos.java
 /home/cegb03/Documentos/Programacion/Repos/Metodos-Numericos-Java-IU/src/main/java/com/cegb03/metodos/logica/LocRaices/Cerrados/BiseccionCode.java
 /home/cegb03/Documentos/Programacion/Repos/Metodos-Numericos-Java-IU/src/main/java/com/cegb03/metodos/logica/Derivar.java
@@ -18,5 +19,6 @@
 /home/cegb03/Documentos/Programacion/Repos/Metodos-Numericos-Java-IU/src/main/java/com/cegb03/metodos/igu/Inicio.java
 /home/cegb03/Documentos/Programacion/Repos/Metodos-Numericos-Java-IU/src/main/java/com/cegb03/metodos/igu/LR/C/BiseccionFrame.java
 /home/cegb03/Documentos/Programacion/Repos/Metodos-Numericos-Java-IU/src/main/java/com/cegb03/metodos/igu/LR/A/SecanteFrame.java
+/home/cegb03/Documentos/Programacion/Repos/Metodos-Numericos-Java-IU/src/main/java/com/cegb03/metodos/igu/Inter/LagrangeFrame.java
 /home/cegb03/Documentos/Programacion/Repos/Metodos-Numericos-Java-IU/src/main/java/com/cegb03/metodos/logica/Graficador.java
 /home/cegb03/Documentos/Programacion/Repos/Metodos-Numericos-Java-IU/src/main/java/com/cegb03/metodos/igu/LR/C/RegulaFalsiFrame.java
