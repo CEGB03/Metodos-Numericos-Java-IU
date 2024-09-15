@@ -116,20 +116,30 @@ public class Pibot {
     }
     
     // Función para imprimir una matriz
-    public static void imprimirMatriz(Double[][] matriz) {
+    public static String imprimirMatriz(Double[][] matriz) {
+        String retornar="";
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 System.out.print(matriz[i][j] + " ");
+                retornar += (matriz[i][j] + " ");
             }
             System.out.println();
+            retornar += "\n";
         }
+        return retornar;
+        
     }
 
     // Función para imprimir un vector
-    public static void imprimirVector(Double[] vector) {
+    public static String imprimirVector(Double[] vector) {
+        String retornar="";
         for (int i = 0; i < vector.length; i++) {
             System.out.println("b[" + i + "] = " + vector[i]);
+            retornar += ("b[" + i + "] = " + vector[i]+"\n");
         }
+        System.out.println();
+        retornar += "\n";
+        return retornar;
     }
 
     public Double getSwap() {

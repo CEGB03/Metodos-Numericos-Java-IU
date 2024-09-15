@@ -1,6 +1,6 @@
-package com.cegb03.metodos.igu.Inter;
+package com.cegb03.metodos.igu.reg;
 
-import com.cegb03.metodos.logica.Interpolaciones.LagrangeCode;
+import com.cegb03.metodos.logica.Regresion.RegoPolinomialCode;
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,22 +11,19 @@ import java.io.IOException;
  *
  * @author cegb03
  */
-public class LagrangeFrame extends javax.swing.JFrame {
+public class RegresionPolinomialFrame extends javax.swing.JFrame {
     
     private Double[][] matrix;
     private Double[][] matrixA;
-    private Double[] matrixB;
     
     private int filas = 0;
     private int columnas = 0;
-    
-    double coeficienteInterpolador;//Coeficiente a interpolar
-    private String funX;
+    private int grado;
 
     /**
      * Creates new form EliminacionGaussianaFrame
      */
-    public LagrangeFrame() {
+    public RegresionPolinomialFrame() {
         initComponents();
     }
 
@@ -46,9 +43,7 @@ public class LagrangeFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAResultados = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
-        txtFunX = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtCoeInter = new javax.swing.JTextField();
+        txtGrado = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,7 +54,7 @@ public class LagrangeFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Metodo de Interpolacion con Lagrange");
+        jLabel1.setText("Metodo de Regresion Polinomial");
 
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -73,21 +68,7 @@ public class LagrangeFrame extends javax.swing.JFrame {
         txtAResultados.setRows(5);
         jScrollPane1.setViewportView(txtAResultados);
 
-        jLabel2.setText("Ingrese la Funcion de ser posible");
-
-        txtFunX.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFunXActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("Ingrese el coeficiente interpolador");
-
-        txtCoeInter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCoeInterActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Ingrese el grado del Polinomio: ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,22 +77,18 @@ public class LagrangeFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtFunX))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnVolver))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCoeInter, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addComponent(txtGrado)
+                        .addGap(18, 18, 18)
                         .addComponent(btnCargarArchivo)))
                 .addContainerGap())
         );
@@ -120,17 +97,12 @@ public class LagrangeFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFunX, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtCoeInter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnCargarArchivo)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCargarArchivo)
+                    .addComponent(jLabel2)
+                    .addComponent(txtGrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVolver)
@@ -154,52 +126,58 @@ public class LagrangeFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCargarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarArchivoActionPerformed
-        if(!txtFunX.getText().isBlank())
-            funX = txtFunX.getText();
-        else{
-            JOptionPane.showMessageDialog(this, "No hay funcion definida, se realizara lo posible menos el calculo del error.");
-            funX = "";
+         // Verificar si el campo de grado está vacío
+        if (txtGrado.getText().isBlank()) {
+            // Mostrar un mensaje de advertencia y no continuar con la operación
+            JOptionPane.showMessageDialog(this, "No hay grado definido, se cancelará la operación.");
+            return; // Salir del método si el grado no está definido
         }
-        coeficienteInterpolador = Double.parseDouble(txtCoeInter.getText());
-        System.out.println("coeficienteInterpolador = " + coeficienteInterpolador);
+
+        // Intentar parsear el grado del campo de texto
+        try {
+            grado = Integer.parseInt(txtGrado.getText());
+        } catch (NumberFormatException e) {
+            // Mostrar un mensaje de error si el grado no es un número entero válido
+            JOptionPane.showMessageDialog(this, "El grado ingresado no es válido. Debe ser un número entero.");
+            return; // Salir del método si el grado no es válido
+        }
+
+        // Cargar la matriz desde el archivo seleccionado
         loadMatrixFromFile();
-        //System.out.println("loadMatrixFromFile() fin");
+
+        // Separar la matriz en A y b
         separarMatricesAB();
+
+        // Imprimir la matriz
         printMatrix();
-//         descomentar las lineas de abajo y terminar de pasar la eliminacion gaussiana.
-        LagrangeCode lc = new LagrangeCode(matrixA, matrixB, filas, columnas, coeficienteInterpolador, funX);
-        if(txtAResultados.getText().isBlank()){
-            //System.out.println("matriz recuperda:\n"+printMatrix()+"\nFin Matriz recuperada.");
-            txtAResultados.setText(imprimir()+"\nTolerancia usada: "+"\n"+lc.interpolar()); // Puedes modificar esta línea para otro procesamiento
+
+        // Crear una instancia de RegoPolinomialCode y realizar la regresión polinomial
+        RegoPolinomialCode rpc = new RegoPolinomialCode(matrix, filas, columnas, grado);
+        if (txtAResultados.getText().isBlank()) {
+            txtAResultados.setText(imprimir() + "\n" + rpc.regresion()); // Puedes modificar esta línea para otro procesamiento
+        } else {
+            txtAResultados.setText(txtAResultados.getText() + "\n" + rpc.regresion()); // Puedes modificar esta línea para otro procesamiento
         }
-        else
-            txtAResultados.setText(txtAResultados.getText()+"\n"+imprimir()+"\nTolerancia usada: "+"\n"+lc.interpolar()); // Puedes modificar esta línea para otro procesamiento
-        
-        System.out.println("Fin Elimnacion");
+
+        System.out.println("Fin Eliminación");
     }//GEN-LAST:event_btnCargarArchivoActionPerformed
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void txtFunXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFunXActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFunXActionPerformed
-
-    private void txtCoeInterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCoeInterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCoeInterActionPerformed
-
+    // Método para separar la matriz en A y b
     private void separarMatricesAB(){
-        int columns=--columnas;
-        //System.out.println("columnas " + columnas + " filas " + filas + " columns " + columns);
+        int columns = --columnas; // Reducir el número de columnas en 1
+        // Copiar la matriz en matrixA
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columns; j++)
                 matrixA[i][j] = matrix[i][j];
-            matrixB[i] = matrix[i][columns];
+            matrixA[i][columns] = matrix[i][columns];
         }
-        //imprimir();
+        //imprimir(); // Se puede descomentar si se necesita imprimir la matriz
     }
-    
+
+    // Método para cargar la matriz desde el archivo seleccionado
     private void loadMatrixFromFile() {
         JFileChooser fileChooser = new JFileChooser();
         int result = fileChooser.showOpenDialog(this);
@@ -207,17 +185,19 @@ public class LagrangeFrame extends javax.swing.JFrame {
             File selectedFile = fileChooser.getSelectedFile();
             try {
                 readMatrixFromFile(selectedFile);
-                if(txtAResultados.getText().isBlank()){
-                    System.out.println("matriz recuperda:\n"+printMatrix()+"\nFin Matriz recuperada.");
+                if (txtAResultados.getText().isBlank()) {
+                    System.out.println("Matriz recuperada:\n" + printMatrix() + "\nFin Matriz recuperada.");
                     txtAResultados.setText(printMatrix()); // Puedes modificar esta línea para otro procesamiento
+                } else {
+                    txtAResultados.setText(txtAResultados.getText() + "\n" + printMatrix()); // Puedes modificar esta línea para otro procesamiento
                 }
-                else
-                    txtAResultados.setText(txtAResultados.getText()+"\n"+printMatrix()); // Puedes modificar esta línea para otro procesamiento
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(this, "Error al leer el archivo", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
+
+    // Método para leer la matriz desde el archivo
     private void readMatrixFromFile(File file) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(file));
         String line;
@@ -242,12 +222,12 @@ public class LagrangeFrame extends javax.swing.JFrame {
         columnas = cols;
         this.matrix = new Double[filas][columnas];
         this.matrixA = new Double[filas][columnas];
-        this.matrixB = new Double[filas];
-        
+
         for (int i = 0; i < filas; i++)
             System.arraycopy(matrizCarga[i], 0, this.matrix[i], 0, columnas);
     }
 
+    // Método para contar el número de líneas en un archivo
     private int countLines(File file) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(file));
         int lines = 0;
@@ -258,40 +238,39 @@ public class LagrangeFrame extends javax.swing.JFrame {
         return lines;
     }
 
+    // Método para imprimir la matriz en formato de texto
     private String printMatrix() {
-        String matriz;
-        matriz = "";
+        StringBuilder matriz = new StringBuilder();
         for (Double[] row : matrix) {
             for (Double value : row) {
-                matriz += (value + " ");
+                matriz.append(value).append(" ");
             }
-            matriz += "\n";
+            matriz.append("\n");
         }
-        return matriz;
-    }
-    
-    public String imprimir() {
-        String matrizImpresa = "";
-        matrizImpresa += ("Impresion de matrices A y b separadas\n");
-        for (int i = 0; i < filas; i++) {
-            for (int j = 0; j < columnas; j++)
-                matrizImpresa += (matrixA[i][j] + " ");
-            matrizImpresa += ("| " + matrixB[i]+"\n");
-        }
-        matrizImpresa += "\n";
-        return matrizImpresa;
+        return matriz.toString();
     }
 
+    // Método para imprimir la matriz A y b separadas
+    public String imprimir() {
+        StringBuilder matrizImpresa = new StringBuilder();
+        matrizImpresa.append("Impresión de matrices A y b separadas\n");
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++)
+                matrizImpresa.append(matrixA[i][j]).append(" ");
+            matrizImpresa.append("| ").append(matrixA[i][columnas]).append("\n");
+        }
+        matrizImpresa.append("\n");
+        return matrizImpresa.toString();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCargarArchivo;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txtAResultados;
-    private javax.swing.JTextField txtCoeInter;
-    private javax.swing.JTextField txtFunX;
+    private javax.swing.JTextField txtGrado;
     // End of variables declaration//GEN-END:variables
 }

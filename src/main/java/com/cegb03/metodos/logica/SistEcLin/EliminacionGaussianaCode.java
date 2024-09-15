@@ -104,5 +104,17 @@ public class EliminacionGaussianaCode {
         }
         solucion += "\n";
     }
+
+    public Double[][] getA() {
+        return A;
+    }
+
+    public Double[] getB() {
+        return b;
+    }
+
+    public Double[] getX() {
+        return x;
+    }
     
 }

@@ -1,6 +1,7 @@
 com/cegb03/metodos/igu/LR/A/PuntoFijoFrame$2.class
 com/cegb03/metodos/igu/LR/C/RegulaFalsiFrame.class
 com/cegb03/metodos/igu/SEL/EliminacionGaussianaFrame$2.class
+com/cegb03/metodos/igu/Inicio$8.class
 com/cegb03/metodos/logica/LocRaices/Abiertos/NewtonRapsonCode.class
 com/cegb03/metodos/igu/Inicio$1.class
 com/cegb03/metodos/igu/LR/C/BiseccionFrame$1.class
@@ -8,13 +9,16 @@ com/cegb03/metodos/igu/SEL/GaussSeidelFrame$2.class
 com/cegb03/metodos/igu/LR/A/SecanteFrame$1.class
 com/cegb03/metodos/igu/LR/A/SecanteFrame.class
 com/cegb03/metodos/igu/Inicio$5.class
+com/cegb03/metodos/igu/reg/RegresionLinealFrame.class
 com/cegb03/metodos/logica/SistEcLin/EliminacionGaussianaCode.class
 com/cegb03/metodos/igu/LR/C/BiseccionFrame.class
 com/cegb03/metodos/igu/Inter/LagrangeFrame$3.class
 com/cegb03/metodos/igu/SEL/JacobiFrame$2.class
+com/cegb03/metodos/igu/reg/RegresionPolinomialFrame$2.class
 com/cegb03/metodos/igu/LR/A/NewtonRapsonFrame$2.class
 com/cegb03/metodos/igu/SEL/JacobiFrame$3.class
 com/cegb03/metodos/logica/SistEcLin/JacobiCode.class
+com/cegb03/metodos/igu/Inter/PolinomialFrame$2.class
 com/cegb03/metodos/logica/Interpolaciones/LagrangeCode.class
 com/cegb03/metodos/igu/Inicio$4.class
 com/cegb03/metodos/igu/SEL/GaussSeidelFrame$1.class
@@ -24,8 +28,13 @@ com/cegb03/metodos/logica/LocRaices/Abiertos/PuntoFijoCode.class
 com/cegb03/metodos/igu/Inter/LagrangeFrame.class
 com/cegb03/metodos/igu/LR/C/BiseccionFrame$3.class
 com/cegb03/metodos/igu/LR/C/RegulaFalsiFrame$2.class
+com/cegb03/metodos/logica/Regresion/RegoPolinomialCode.class
 com/cegb03/metodos/igu/LR/A/NewtonRapsonFrame$3.class
+com/cegb03/metodos/igu/reg/RegresionLinealFrame$1.class
+com/cegb03/metodos/logica/Interpolaciones/InterpolacionPolinomialCode.class
 com/cegb03/metodos/logica/LocRaices/Cerrados/RegulaFalsiCode.class
+com/cegb03/metodos/igu/Inicio$7.class
+com/cegb03/metodos/logica/Regresion/RegLinealCode.class
 com/cegb03/metodos/igu/SEL/EliminacionGaussianaFrame.class
 com/cegb03/metodos/logica/CalculosErrores.class
 com/cegb03/metodos/igu/Inter/LagrangeFrame$2.class
@@ -35,6 +44,7 @@ com/cegb03/metodos/igu/LR/A/NewtonRapsonFrame.class
 com/cegb03/metodos/igu/SEL/GaussSeidelFrame$4.class
 com/cegb03/metodos/igu/LR/A/SecanteFrame$3.class
 com/cegb03/metodos/igu/LR/A/NewtonRapsonFrame$1.class
+com/cegb03/metodos/igu/Inter/PolinomialFrame$1.class
 com/cegb03/metodos/logica/LocRaices/Abiertos/SecanteCode.class
 com/cegb03/metodos/igu/LR/A/PuntoFijoFrame.class
 com/cegb03/metodos/igu/Inter/LagrangeFrame$1.class
@@ -42,8 +52,10 @@ com/cegb03/metodos/igu/Inicio$6.class
 com/cegb03/metodos/logica/SistEcLin/GaussSeidelCode.class
 com/cegb03/metodos/logica/Derivar.class
 com/cegb03/metodos/MetodosNumericos.class
+com/cegb03/metodos/igu/reg/RegresionPolinomialFrame.class
 com/cegb03/metodos/igu/LR/C/BiseccionFrame$2.class
 com/cegb03/metodos/igu/LR/A/PuntoFijoFrame$3.class
+com/cegb03/metodos/igu/reg/RegresionLinealFrame$2.class
 com/cegb03/metodos/igu/SEL/GaussSeidelFrame$3.class
 com/cegb03/metodos/igu/LR/A/SecanteFrame$2.class
 com/cegb03/metodos/igu/Inter/LagrangeFrame$4.class
@@ -51,7 +63,9 @@ com/cegb03/metodos/logica/Pibot.class
 com/cegb03/metodos/igu/LR/A/PuntoFijoFrame$1.class
 com/cegb03/metodos/igu/LR/C/RegulaFalsiFrame$1.class
 com/cegb03/metodos/igu/SEL/EliminacionGaussianaFrame$1.class
+com/cegb03/metodos/igu/Inter/PolinomialFrame.class
 com/cegb03/metodos/igu/SEL/GaussSeidelFrame.class
 com/cegb03/metodos/logica/LocRaices/Cerrados/BiseccionCode.class
 com/cegb03/metodos/igu/SEL/JacobiFrame$1.class
+com/cegb03/metodos/igu/reg/RegresionPolinomialFrame$1.class
 com/cegb03/metodos/igu/Inicio$2.class
