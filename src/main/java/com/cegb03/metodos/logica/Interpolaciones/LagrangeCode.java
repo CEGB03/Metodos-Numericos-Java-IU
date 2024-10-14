@@ -21,9 +21,9 @@ public class LagrangeCode {
     private int p = 0;
     private Double swap = (double) 0;
     private String solucion = "";
-    private String matriz = "";
+    private String polinomio = "";
     private String retornar = "";
-    private final String funX;
+    private String funX;
 
     public LagrangeCode(Double[][] A, Double[] b, int filas, int columnas, double interppolador, String funX) {
         this.A = A;
@@ -43,6 +43,9 @@ public class LagrangeCode {
         separarXY();
     }
     public String interpolar(){
+        
+        // Solo por el primer parcial
+        funX = "ln(x*x+1)-sin(x)";
         separarXY();
         Double sum = 0.0;
         for (int i = 0; i < filas; i++) {
@@ -55,7 +58,10 @@ public class LagrangeCode {
             sum += y[i] * producto;
         }
         e = Math.abs(evaluarFuncion(coeficienteInterpolador, funX) - sum);
+        
+        Double evaluarPolinomio = evaluarFuncion(1.6, polinomio);
 
+        System.out.println("El valor 1.6 evaluado en el polinomio"+polinomio + " es de "+ evaluarPolinomio);
         System.out.println("El valor interpolado para "+coeficienteInterpolador+" es: "+sum+", con un error de "+e+".");
         retornar += ("El valor interpolado para "+coeficienteInterpolador+" es: "+sum+", con un error de "+e+".");
         imprimirPolinomioCnk();
@@ -82,25 +88,26 @@ public class LagrangeCode {
 
             for (int j = 0; j < filas; j++) {
                 if (j != i) {
-                    termino.append(" * (x - ").append(x[j]).append(") / (").append(x[i]).append(" - ").append(x[j]).append(")");
+                    termino.append(" * (x - ").append(x[j]).append(") / (").append(x[i]).append(" - ").append(x[j]).append(") ");
                 }
             }
 
-            // Añadir el signo más entre términos (excepto antes del primer término)
-            if (i > 0 && y[i] >= 0) {
-                polinomio.append(" + ");
-            } else if (y[i] < 0) {
-                polinomio.append(" - ");
-                termino.deleteCharAt(0);  // Eliminar el signo negativo de y[i] si es negativo
-            }
+//            // Añadir el signo más entre términos (excepto antes del primer término)
+//            if (i > 0 && y[i] >= 0) {
+//                polinomio.append(" + ");
+//            } else if (y[i] < 0) {
+//                polinomio.append(" - ");
+//                termino.deleteCharAt(0);  // Eliminar el signo negativo de y[i] si es negativo
+//            }
 
             polinomio.append(termino);
         }
 
         System.out.println("El polinomio interpolador de Lagrange es: ");
         System.out.println(polinomio.toString());
-        solucion +=("El polinomio interpolador de Lagrange es: ");
+        solucion +=("El polinomio interpolador de Lagrange es:\n ");
         solucion +=(polinomio.toString());
+        this.polinomio =polinomio.toString();
     }
     private double evaluarFuncion(double x, String fun) {
         try {

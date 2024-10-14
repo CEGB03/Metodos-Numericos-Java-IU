@@ -111,7 +111,7 @@ public class LagrangeFrame extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCoeInter, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 385, Short.MAX_VALUE)
                         .addComponent(btnCargarArchivo)))
                 .addContainerGap())
         );
@@ -170,10 +170,10 @@ public class LagrangeFrame extends javax.swing.JFrame {
         LagrangeCode lc = new LagrangeCode(matrixA, matrixB, filas, columnas, coeficienteInterpolador, funX);
         if(txtAResultados.getText().isBlank()){
             //System.out.println("matriz recuperda:\n"+printMatrix()+"\nFin Matriz recuperada.");
-            txtAResultados.setText(imprimir()+"\nTolerancia usada: "+"\n"+lc.interpolar()); // Puedes modificar esta línea para otro procesamiento
+            txtAResultados.setText(imprimir()+"\nCoeficiente Interpolador usado: "+coeficienteInterpolador+"\n"+lc.interpolar()); // Puedes modificar esta línea para otro procesamiento
         }
         else
-            txtAResultados.setText(txtAResultados.getText()+"\n"+imprimir()+"\nTolerancia usada: "+"\n"+lc.interpolar()); // Puedes modificar esta línea para otro procesamiento
+            txtAResultados.setText(txtAResultados.getText()+"\n"+imprimir()+"\nCoeficiente Interpolador usado: "+coeficienteInterpolador+"\n"+lc.interpolar()); // Puedes modificar esta línea para otro procesamiento
         
         System.out.println("Fin Elimnacion");
     }//GEN-LAST:event_btnCargarArchivoActionPerformed

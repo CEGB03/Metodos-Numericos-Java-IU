@@ -44,13 +44,13 @@ public class PuntoFijoCode {
         
         do{
             cont++;
-           if ((Math.abs((evaluarFuncion(a + delta, funY) - evaluarFuncion(a, funY)) / delta)) > 1) {
-                return "\nNo cumple con el criterio de convergencia. El método diverge (|g'(x)| ≥ 1)";
-            }else{
+//           if ((Math.abs((evaluarFuncion(a + delta, funY) - evaluarFuncion(a, funY)) / delta)) > 1) {
+//                return "\nNo cumple con el criterio de convergencia. El método diverge (|g'(x)| ≥ 1)";
+//            }else{
                 b = evaluarFuncion(a, funY);
                 error = Math.abs(b - a);
                 a = b;
-            }
+//            }
 
         } while (error > tolerancia && cont < 15000);
         DecimalFormat df = new DecimalFormat("0.00000000000000000000"); // Define el formato con 20 decimales

@@ -24,6 +24,7 @@ public class Pibot {
         for (int jj = 0; jj < filas; jj++) {
             // Encontrar el elemento máximo en la columna actual
             p = jj;
+            System.out.println("A[jj][jj]"+A[jj][jj]+"--> jj ="+jj);
             if (Math.abs(A[jj][jj])<errorMinimo){
                 for (int ll = jj + 1; ll < filas; ll++) {
                     if (Math.abs(A[ll][jj]) > Math.abs(A[jj][jj]))

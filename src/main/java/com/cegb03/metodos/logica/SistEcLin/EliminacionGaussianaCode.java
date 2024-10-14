@@ -30,8 +30,8 @@ public class EliminacionGaussianaCode {
         imprimir();
         //Piboteo inicio
         Pibot pibot = new Pibot(A, b, filas);
-        pibot.pibotear();
-        imprimir();
+        //pibot.pibotear();
+        //imprimir();
         pibot.triangulacionConPivot();
         imprimir();
         A=pibot.getA();b=pibot.getB();
