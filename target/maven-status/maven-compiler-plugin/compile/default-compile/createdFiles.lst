@@ -59,6 +59,7 @@ com/cegb03/metodos/LocRaices/LocRaicesFrame$10.class
 com/cegb03/metodos/SistEcLin/JacobiFrame$2.class
 com/cegb03/metodos/Inicio$5.class
 com/cegb03/metodos/LocRaices/Abiertos/PuntoFijoFrame$1.class
+com/cegb03/metodos/calculos/Derivar$ResultadoValidacion.class
 com/cegb03/metodos/Regresion/RegLinealCode.class
 com/cegb03/metodos/calculos/SepararTerminos.class
 com/cegb03/metodos/SistEcLin/EliminacionGaussianaFrame$1.class

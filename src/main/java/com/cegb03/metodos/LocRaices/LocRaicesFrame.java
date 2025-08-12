@@ -45,13 +45,12 @@ public class LocRaicesFrame extends javax.swing.JFrame {
         txtVarA.setEnabled(false);
         txtVarB.setEnabled(false);
         txtVarTol.setEnabled(false);
-        txtFunY.setBackground(Color.orange);
-        txtVarXNuevo.setBackground(Color.orange);
-        txtVarA.setBackground(Color.blue);
-        txtVarB.setBackground(Color.blue);
-        txtFunF.setBackground(Color.gray);
-        txtVarTol.setBackground(Color.gray);
-        
+        txtFunY.setBackground(Color.MAGENTA);
+        txtVarXNuevo.setBackground(Color.MAGENTA);
+        txtVarA.setBackground(Color.BLUE);
+        txtVarB.setBackground(Color.BLUE);
+        txtFunF.setBackground(Color.GRAY);
+        txtVarTol.setBackground(Color.GRAY);        
     }
 
     /**
@@ -94,6 +93,7 @@ public class LocRaicesFrame extends javax.swing.JFrame {
         jPGrafico = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Metodo Localizacion de Raices General");
 
         lblTitulo.setText("Metodo Loc Raices General");
 
@@ -110,6 +110,8 @@ public class LocRaicesFrame extends javax.swing.JFrame {
                 txtFunFActionPerformed(evt);
             }
         });
+
+        txtVarTol.setText("0.0001");
 
         txtAResultados.setEditable(false);
         txtAResultados.setColumns(20);
@@ -198,37 +200,34 @@ public class LocRaicesFrame extends javax.swing.JFrame {
                 .addGroup(jPInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPInputLayout.createSequentialGroup()
                         .addGroup(jPInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(jPInputLayout.createSequentialGroup()
-                                            .addContainerGap()
-                                            .addGroup(jPInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblInFunF)
-                                                .addComponent(jLabel3))
-                                            .addGap(90, 90, 90)
-                                            .addGroup(jPInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(txtFunF)
-                                                .addComponent(txtVarA, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)))
-                                        .addGroup(jPInputLayout.createSequentialGroup()
-                                            .addContainerGap()
-                                            .addGroup(jPInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel4)
-                                                .addComponent(jLabel5))
-                                            .addGap(25, 25, 25)
-                                            .addGroup(jPInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtVarB)
-                                                .addComponent(txtVarTol)))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPInputLayout.createSequentialGroup()
-                                            .addContainerGap()
-                                            .addComponent(btnChecPuntoFijo)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                                            .addComponent(btnChecNewtonRapson)
-                                            .addGap(36, 36, 36)
-                                            .addComponent(btnChecSecante)))
-                                    .addGroup(jPInputLayout.createSequentialGroup()
-                                        .addContainerGap()
+                            .addGroup(jPInputLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(jPInputLayout.createSequentialGroup()
+                                                .addGroup(jPInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lblInFunF)
+                                                    .addComponent(jLabel3))
+                                                .addGap(90, 90, 90)
+                                                .addGroup(jPInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(txtFunF)
+                                                    .addComponent(txtVarA, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)))
+                                            .addGroup(jPInputLayout.createSequentialGroup()
+                                                .addGroup(jPInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel4)
+                                                    .addComponent(jLabel5))
+                                                .addGap(25, 25, 25)
+                                                .addGroup(jPInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(txtVarB)
+                                                    .addComponent(txtVarTol)))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPInputLayout.createSequentialGroup()
+                                                .addComponent(btnChecPuntoFijo)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                                                .addComponent(btnChecNewtonRapson)
+                                                .addGap(36, 36, 36)
+                                                .addComponent(btnChecSecante)))
                                         .addComponent(jLabel6))))
                             .addGroup(jPInputLayout.createSequentialGroup()
                                 .addContainerGap()
@@ -478,22 +477,32 @@ public class LocRaicesFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGraficarActionPerformed
 
     private void btnChecPuntoFijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChecPuntoFijoActionPerformed
-        boolean activo = btnChecPuntoFijo.isSelected() || btnChecNewtonRapson.isSelected() || btnChecSecante.isSelected();
-        if(activo){
-            txtFunF.setBackground(Color.white);
-            txtFunY.setBackground(Color.white);
-            txtVarXNuevo.setBackground(Color.white);
-            txtVarTol.setBackground(Color.white);
-        }else{
-            txtFunF.setBackground(Color.gray);
-            txtFunY.setBackground(Color.orange);
-            txtVarXNuevo.setBackground(Color.orange);
-            txtVarTol.setBackground(Color.gray);
+        boolean metodosAbiertos = btnChecPuntoFijo.isSelected() || btnChecNewtonRapson.isSelected() || btnChecSecante.isSelected();
+        boolean metodosCerrados = btnChecRegulaFalsi.isSelected() || btnCheckBiseccion.isSelected();
+
+        txtFunF.setEnabled(metodosAbiertos || metodosCerrados);
+        txtVarTol.setEnabled(metodosAbiertos || metodosCerrados);
+        txtFunY.setEnabled(metodosAbiertos);
+        txtVarXNuevo.setEnabled(metodosAbiertos);
+
+        if (metodosAbiertos || metodosCerrados) {
+            // Si al menos un método está seleccionado, los campos deben estar habilitados y con fondo blanco
+            txtFunF.setBackground(Color.WHITE);
+            txtVarTol.setBackground(Color.WHITE);
+        } else {
+            // Si ninguno de los métodos está seleccionado, los campos deben estar deshabilitados y con fondo gris
+            txtFunF.setBackground(Color.GRAY);
+            txtVarTol.setBackground(Color.GRAY);
         }
-        txtFunF.setEnabled(activo);
-        txtFunY.setEnabled(activo);
-        txtVarXNuevo.setEnabled(activo);
-        txtVarTol.setEnabled(activo);
+        
+        // Campos específicos para métodos cerrados con fondo azul
+        if ( !metodosAbiertos) {
+            txtFunY.setBackground(Color.MAGENTA);
+            txtVarXNuevo.setBackground(Color.MAGENTA);
+        } else {
+            txtFunY.setBackground(Color.WHITE);
+            txtVarXNuevo.setBackground(Color.WHITE);
+        }
     }//GEN-LAST:event_btnChecPuntoFijoActionPerformed
 
     private void txtFunYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFunYActionPerformed
@@ -505,79 +514,120 @@ public class LocRaicesFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFunFActionPerformed
 
     private void btnCheckBiseccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckBiseccionActionPerformed
-        boolean activo = btnChecRegulaFalsi.isSelected()|| btnCheckBiseccion.isSelected();
-        if(activo){
-            txtFunF.setBackground(Color.white);
-            txtVarA.setBackground(Color.white);
-            txtVarB.setBackground(Color.white);
-            txtVarTol.setBackground(Color.white);
-        }else{
-            txtFunF.setBackground(Color.gray);
-            txtVarA.setBackground(Color.blue);
-            txtVarB.setBackground(Color.blue);
-            txtVarTol.setBackground(Color.gray);
+        boolean metodosAbiertos = btnChecPuntoFijo.isSelected() || btnChecNewtonRapson.isSelected() || btnChecSecante.isSelected();
+        boolean metodosCerrados = btnChecRegulaFalsi.isSelected() || btnCheckBiseccion.isSelected();
+
+        txtFunF.setEnabled(metodosAbiertos || metodosCerrados);
+        txtVarTol.setEnabled(metodosAbiertos || metodosCerrados);
+        txtVarA.setEnabled(metodosCerrados);
+        txtVarB.setEnabled(metodosCerrados);
+
+        if (metodosAbiertos || metodosCerrados) {
+            // Si al menos un método está seleccionado, los campos deben estar habilitados y con fondo blanco
+            txtFunF.setBackground(Color.WHITE);
+            txtVarTol.setBackground(Color.WHITE);
+        } else {
+            // Si ninguno de los métodos está seleccionado, los campos deben estar deshabilitados y con fondo gris
+            txtFunF.setBackground(Color.GRAY);
+            txtVarTol.setBackground(Color.GRAY);
         }
-        txtFunF.setEnabled(activo);
-        txtVarA.setEnabled(activo);
-        txtVarB.setEnabled(activo);
-        txtVarTol.setEnabled(activo);
+        
+        // Campos específicos para métodos cerrados con fondo azul
+        if ( !metodosCerrados) {
+            txtVarA.setBackground(Color.BLUE);
+            txtVarB.setBackground(Color.BLUE);
+        } else {
+            txtVarA.setBackground(Color.WHITE);
+            txtVarB.setBackground(Color.WHITE);
+        }
+
     }//GEN-LAST:event_btnCheckBiseccionActionPerformed
 
     private void btnChecRegulaFalsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChecRegulaFalsiActionPerformed
-        boolean activo = btnChecRegulaFalsi.isSelected()|| btnCheckBiseccion.isSelected();
-        if(activo){
-            txtFunF.setBackground(Color.white);
-            txtVarA.setBackground(Color.white);
-            txtVarB.setBackground(Color.white);
-            txtVarTol.setBackground(Color.white);
-        }else{
-            txtFunF.setBackground(Color.gray);
-            txtVarA.setBackground(Color.blue);
-            txtVarB.setBackground(Color.blue);
-            txtVarTol.setBackground(Color.gray);
+        boolean metodosAbiertos = btnChecPuntoFijo.isSelected() || btnChecNewtonRapson.isSelected() || btnChecSecante.isSelected();
+        boolean metodosCerrados = btnChecRegulaFalsi.isSelected() || btnCheckBiseccion.isSelected();
+
+        txtFunF.setEnabled(metodosAbiertos || metodosCerrados);
+        txtVarTol.setEnabled(metodosAbiertos || metodosCerrados);
+        txtVarA.setEnabled(metodosCerrados);
+        txtVarB.setEnabled(metodosCerrados);
+
+        if (metodosAbiertos || metodosCerrados) {
+            // Si al menos un método está seleccionado, los campos deben estar habilitados y con fondo blanco
+            txtFunF.setBackground(Color.WHITE);
+            txtVarTol.setBackground(Color.WHITE);
+        } else {
+            // Si ninguno de los métodos está seleccionado, los campos deben estar deshabilitados y con fondo gris
+            txtFunF.setBackground(Color.GRAY);
+            txtVarTol.setBackground(Color.GRAY);
         }
-        txtFunF.setEnabled(activo);
-        txtVarA.setEnabled(activo);
-        txtVarB.setEnabled(activo);
-        txtVarTol.setEnabled(activo);
+        
+        // Campos específicos para métodos cerrados con fondo azul
+        if ( !metodosCerrados) {
+            txtVarA.setBackground(Color.BLUE);
+            txtVarB.setBackground(Color.BLUE);
+        } else {
+            txtVarA.setBackground(Color.WHITE);
+            txtVarB.setBackground(Color.WHITE);
+        }
     }//GEN-LAST:event_btnChecRegulaFalsiActionPerformed
 
     private void btnChecNewtonRapsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChecNewtonRapsonActionPerformed
-        boolean activo = btnChecPuntoFijo.isSelected() || btnChecNewtonRapson.isSelected() || btnChecSecante.isSelected();
-        if(activo){
-            txtFunF.setBackground(Color.white);
-            txtFunY.setBackground(Color.white);
-            txtVarXNuevo.setBackground(Color.white);
-            txtVarTol.setBackground(Color.white);
-        }else{
-            txtFunF.setBackground(Color.gray);
-            txtFunY.setBackground(Color.orange);
-            txtVarXNuevo.setBackground(Color.orange);
-            txtVarTol.setBackground(Color.gray);
+        boolean metodosAbiertos = btnChecPuntoFijo.isSelected() || btnChecNewtonRapson.isSelected() || btnChecSecante.isSelected();
+        boolean metodosCerrados = btnChecRegulaFalsi.isSelected() || btnCheckBiseccion.isSelected();
+
+        txtFunF.setEnabled(metodosAbiertos || metodosCerrados);
+        txtVarTol.setEnabled(metodosAbiertos || metodosCerrados);
+        txtFunY.setEnabled(metodosAbiertos);
+        txtVarXNuevo.setEnabled(metodosAbiertos);
+
+        if (metodosAbiertos || metodosCerrados) {
+            // Si al menos un método está seleccionado, los campos deben estar habilitados y con fondo blanco
+            txtFunF.setBackground(Color.WHITE);
+            txtVarTol.setBackground(Color.WHITE);
+        } else {
+            // Si ninguno de los métodos está seleccionado, los campos deben estar deshabilitados y con fondo gris
+            txtFunF.setBackground(Color.GRAY);
+            txtVarTol.setBackground(Color.GRAY);
         }
-        txtFunF.setEnabled(activo);
-        txtFunY.setEnabled(activo);
-        txtVarXNuevo.setEnabled(activo);
-        txtVarTol.setEnabled(activo);
+        
+        // Campos específicos para métodos cerrados con fondo azul
+        if ( !metodosAbiertos) {
+            txtFunY.setBackground(Color.MAGENTA);
+            txtVarXNuevo.setBackground(Color.MAGENTA);
+        } else {
+            txtFunY.setBackground(Color.WHITE);
+            txtVarXNuevo.setBackground(Color.WHITE);
+        }
     }//GEN-LAST:event_btnChecNewtonRapsonActionPerformed
 
     private void btnChecSecanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChecSecanteActionPerformed
-        boolean activo = btnChecPuntoFijo.isSelected() || btnChecNewtonRapson.isSelected() || btnChecSecante.isSelected();
-        if(activo){
-            txtFunF.setBackground(Color.white);
-            txtFunY.setBackground(Color.white);
-            txtVarXNuevo.setBackground(Color.white);
-            txtVarTol.setBackground(Color.white);
-        }else{
-            txtFunF.setBackground(Color.gray);
-            txtFunY.setBackground(Color.orange);
-            txtVarXNuevo.setBackground(Color.orange);
-            txtVarTol.setBackground(Color.gray);
+        boolean metodosAbiertos = btnChecPuntoFijo.isSelected() || btnChecNewtonRapson.isSelected() || btnChecSecante.isSelected();
+        boolean metodosCerrados = btnChecRegulaFalsi.isSelected() || btnCheckBiseccion.isSelected();
+
+        txtFunF.setEnabled(metodosAbiertos || metodosCerrados);
+        txtVarTol.setEnabled(metodosAbiertos || metodosCerrados);
+        txtFunY.setEnabled(metodosAbiertos);
+        txtVarXNuevo.setEnabled(metodosAbiertos);
+
+        if (metodosAbiertos || metodosCerrados) {
+            // Si al menos un método está seleccionado, los campos deben estar habilitados y con fondo blanco
+            txtFunF.setBackground(Color.WHITE);
+            txtVarTol.setBackground(Color.WHITE);
+        } else {
+            // Si ninguno de los métodos está seleccionado, los campos deben estar deshabilitados y con fondo gris
+            txtFunF.setBackground(Color.GRAY);
+            txtVarTol.setBackground(Color.GRAY);
         }
-        txtFunF.setEnabled(activo);
-        txtFunY.setEnabled(activo);
-        txtVarXNuevo.setEnabled(activo);
-        txtVarTol.setEnabled(activo);
+        
+        // Campos específicos para métodos cerrados con fondo azul
+        if ( !metodosAbiertos) {
+            txtFunY.setBackground(Color.MAGENTA);
+            txtVarXNuevo.setBackground(Color.MAGENTA);
+        } else {
+            txtFunY.setBackground(Color.WHITE);
+            txtVarXNuevo.setBackground(Color.WHITE);
+        }
     }//GEN-LAST:event_btnChecSecanteActionPerformed
         
     private void graficarFuncionMetodosCerrados() {
