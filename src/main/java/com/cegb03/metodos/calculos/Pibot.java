@@ -18,6 +18,7 @@ public class Pibot {
         this.b=matrizB;
         this.filas=cantFilas;
     }
+    
     public void pibotear(){
         double errorMinimo = 1e-5; //ACORDARSE DE CAMBIARLO!!!
         // Pivoteo parcial
@@ -44,6 +45,7 @@ public class Pibot {
             }
         }
     }
+    
     public void triangulacionConPivot(){
         double f;
         Double aux;
@@ -105,6 +107,7 @@ public class Pibot {
             //triangulacion_GPT(i);
         }
     }
+    
     public void triangulacion_GPT(int i){
         for (int j = i + 1; j < filas; j++) {
             double factor = A[j][i] / A[i][i];

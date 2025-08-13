@@ -13,6 +13,7 @@ import com.cegb03.metodos.Interpolaciones.PolinomialFrame;
 import com.cegb03.metodos.LocRaices.LocRaicesFrame;
 import com.cegb03.metodos.Regresion.RegresionLinealFrame;
 import com.cegb03.metodos.Regresion.RegresionPolinomialFrame;
+import com.cegb03.metodos.SistEcLin.SistematEcuacionesLinealesFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
@@ -264,6 +265,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLocRaicesActionPerformed
 
     private void btnSisEcuLinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSisEcuLinActionPerformed
+        /*
         comboBoxSisEcuaLin.removeAllItems();
         comboBoxSisEcuaLin.addItem("Metodos Sistema de Ecuaciones Algebraicas Lineales");
         comboBoxSisEcuaLin.addItem("Metodos Iterativos para Sistemas de Ecuaciones Lineales");
@@ -310,6 +312,10 @@ public class Inicio extends javax.swing.JFrame {
             }else
                 JOptionPane.showMessageDialog(this, "Ninguna conincidencia entre el tipo de metodo " + nombreTipoMetodo + " y el metodo " + metodoSelect + " seleccionado");
         }
+        */
+        SistematEcuacionesLinealesFrame ecuacionesLinealesFrame = new SistematEcuacionesLinealesFrame();
+        ecuacionesLinealesFrame.setVisible(true);
+        ecuacionesLinealesFrame.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnSisEcuLinActionPerformed
 
     private void btnInterpolacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInterpolacionActionPerformed
