@@ -31,6 +31,7 @@ com/cegb03/metodos/Regresion/RegoPolinomialCode.class
 com/cegb03/metodos/SistEcLin/SistematEcuacionesLinealesFrame$2.class
 com/cegb03/metodos/Inicio$3.class
 com/cegb03/metodos/LocRaices/Cerrados/RegulaFalsiCode.class
+com/cegb03/metodos/MetodosNumericos$1.class
 com/cegb03/metodos/Interpolaciones/LagrangeCode.class
 com/cegb03/metodos/LocRaices/Abiertos/SecanteFrame.class
 com/cegb03/metodos/LocRaices/LocRaicesFrame$8.class
@@ -56,14 +57,12 @@ com/cegb03/metodos/SistEcLin/SistematEcuacionesLinealesFrame$1.class
 com/cegb03/metodos/SistEcLin/GaussSeidelFrame$1.class
 com/cegb03/metodos/LocRaices/Abiertos/PuntoFijoFrame$3.class
 com/cegb03/metodos/LocRaices/Cerrados/RegulaFalsiFrame$1.class
-com/cegb03/metodos/LocRaices/LocRaicesFrame$9.class
 com/cegb03/metodos/calculos/Derivar.class
 com/cegb03/metodos/calculos/Pibot.class
 com/cegb03/metodos/Inicio$2.class
 com/cegb03/metodos/LocRaices/Cerrados/BiseccionFrame.class
 com/cegb03/metodos/MetodosNumericos.class
 com/cegb03/metodos/LocRaices/Abiertos/SecanteCode.class
-com/cegb03/metodos/LocRaices/LocRaicesFrame$10.class
 com/cegb03/metodos/SistEcLin/JacobiFrame$2.class
 com/cegb03/metodos/SistEcLin/SistematEcuacionesLinealesFrame$4.class
 com/cegb03/metodos/Inicio$5.class

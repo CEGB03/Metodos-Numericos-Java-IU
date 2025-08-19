@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Métodos Numéricos
+Comment=Aplicación Java para Métodos Numéricos
+Exec=/home/cegb03/Documentos/Programacion/Repos/Metodos-Numericos-Java-IU/run-metodos-numericos.sh
+Icon=accessories-calculator
+Terminal=false
+Type=Application
+Categories=Science;Education;Java;

@@ -1,26 +1,23 @@
 package com.cegb03.metodos;
 
-import com.cegb03.metodos.SistEcLin.EliminacionGaussianaFrame;
-import com.cegb03.metodos.SistEcLin.JacobiFrame;
-import com.cegb03.metodos.SistEcLin.GaussSeidelFrame;
-import com.cegb03.metodos.LocRaices.Abiertos.PuntoFijoFrame;
-import com.cegb03.metodos.LocRaices.Abiertos.NewtonRapsonFrame;
-import com.cegb03.metodos.LocRaices.Abiertos.SecanteFrame;
-import com.cegb03.metodos.LocRaices.Cerrados.BiseccionFrame;
-import com.cegb03.metodos.LocRaices.Cerrados.RegulaFalsiFrame;
 import com.cegb03.metodos.Interpolaciones.LagrangeFrame;
 import com.cegb03.metodos.Interpolaciones.PolinomialFrame;
 import com.cegb03.metodos.LocRaices.LocRaicesFrame;
 import com.cegb03.metodos.Regresion.RegresionLinealFrame;
 import com.cegb03.metodos.Regresion.RegresionPolinomialFrame;
 import com.cegb03.metodos.SistEcLin.SistematEcuacionesLinealesFrame;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.border.Border;
+import javax.swing.BorderFactory;
 
 /**
  *
@@ -36,61 +33,68 @@ public class Inicio extends javax.swing.JFrame {
 
     // Crear JComboBox para seleccionar el nombre del metodo
     JComboBox<String> comboBoxMetodosDisponibles = new JComboBox<>();
-// String[] metodos = {      0     ,        1      ,       2     ,       3        ,      4    ,
-    String[] metodos = {"Biseccion", "Regula Falsi", "Punto Fijo", "Newton-Rapson", "Tangente", 
-//                                                          5                  ,     6     ,             7            ,
-                                        "Eliminacion Gaussiana", "Jacobi", "Gauss-Seidel", 
-//                                              8        ,         9          ,
-                                        "Lagrange", "Polinomial",
-//                                          10   ,          11      , };
-                                        "Lineal", "Polinomial"};
+    // String[] metodos = { 0 , 1 , 2 , 3 , 4 ,
+    String[] metodos = { "Biseccion", "Regula Falsi", "Punto Fijo", "Newton-Rapson", "Tangente",
+            // 5 , 6 , 7 ,
+            "Eliminacion Gaussiana", "Jacobi", "Gauss-Seidel",
+            // 8 , 9 ,
+            "Lagrange", "Polinomial",
+            // 10 , 11 , };
+            "Lineal", "Polinomial" };
 
-    private void actualizarSeleccion(JComboBox comboBoxMetodosDisponibles, String[] metodos, JComboBox comboBoxMetodos){
-            switch ((String) comboBoxMetodos.getSelectedItem()) {
-                case "Metodos Cerrados" -> {
-                    comboBoxMetodosDisponibles.removeAllItems();
-                    for (int i = 0; i < 2; i++) 
-                        comboBoxMetodosDisponibles.addItem(metodos[i]);
-                }
-                case "Metodos Abiertos" -> {
-                    comboBoxMetodosDisponibles.removeAllItems();
-                    for (int i = 2; i < 5; i++) 
-                        comboBoxMetodosDisponibles.addItem(metodos[i]);
-                }
-                case "Metodos Sistema de Ecuaciones Algebraicas Lineales" -> {
-                    comboBoxMetodosDisponibles.removeAllItems();
-                    for (int i = 5; i < 6; i++) 
-                        comboBoxMetodosDisponibles.addItem(metodos[i]);
-                }
-                case "Metodos Iterativos para Sistemas de Ecuaciones Lineales" -> {
-                    comboBoxMetodosDisponibles.removeAllItems();
-                    for (int i = 6; i < 8; i++) 
-                        comboBoxMetodosDisponibles.addItem(metodos[i]);
-                }  
-                case "Metodos de Interpolacion" -> {
-                    comboBoxMetodosDisponibles.removeAllItems();
-                    for (int i = 8; i < 10; i++)
-                        comboBoxMetodosDisponibles.addItem(metodos[i]);
-                }  
-/*                case "Metodos de Interpolacion Segmentaria" -> {
-                    comboBoxMetodosDisponibles.removeAllItems();
-                    for (int i = 100; i < 110; i++)
-                        comboBoxMetodosDisponibles.addItem(metodos[i]);
-                }*/
-                case "Metodos de Regresioncion" -> {
-                    comboBoxMetodosDisponibles.removeAllItems();
-                    for (int i = 10; i < 12; i++)
-                        comboBoxMetodosDisponibles.addItem(metodos[i]);
-                }
-                default -> {
-                }
+    private void actualizarSeleccion(JComboBox comboBoxMetodosDisponibles, String[] metodos,
+            JComboBox comboBoxMetodos) {
+        switch ((String) comboBoxMetodos.getSelectedItem()) {
+            case "Metodos Cerrados" -> {
+                comboBoxMetodosDisponibles.removeAllItems();
+                for (int i = 0; i < 2; i++)
+                    comboBoxMetodosDisponibles.addItem(metodos[i]);
             }
+            case "Metodos Abiertos" -> {
+                comboBoxMetodosDisponibles.removeAllItems();
+                for (int i = 2; i < 5; i++)
+                    comboBoxMetodosDisponibles.addItem(metodos[i]);
+            }
+            case "Metodos Sistema de Ecuaciones Algebraicas Lineales" -> {
+                comboBoxMetodosDisponibles.removeAllItems();
+                for (int i = 5; i < 6; i++)
+                    comboBoxMetodosDisponibles.addItem(metodos[i]);
+            }
+            case "Metodos Iterativos para Sistemas de Ecuaciones Lineales" -> {
+                comboBoxMetodosDisponibles.removeAllItems();
+                for (int i = 6; i < 8; i++)
+                    comboBoxMetodosDisponibles.addItem(metodos[i]);
+            }
+            case "Metodos de Interpolacion" -> {
+                comboBoxMetodosDisponibles.removeAllItems();
+                for (int i = 8; i < 10; i++)
+                    comboBoxMetodosDisponibles.addItem(metodos[i]);
+            }
+            /*
+             * case "Metodos de Interpolacion Segmentaria" -> {
+             * comboBoxMetodosDisponibles.removeAllItems();
+             * for (int i = 100; i < 110; i++)
+             * comboBoxMetodosDisponibles.addItem(metodos[i]);
+             * }
+             */
+            case "Metodos de Regresioncion" -> {
+                comboBoxMetodosDisponibles.removeAllItems();
+                for (int i = 10; i < 12; i++)
+                    comboBoxMetodosDisponibles.addItem(metodos[i]);
+            }
+            default -> {
+            }
+        }
     }
+
     /**
      * Creates new form Inicio
      */
     public Inicio() {
         initComponents();
+        
+        // Configurar título de la ventana
+        setTitle("Métodos Numéricos - Menú Principal");
         comboBoxLocRaices.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -115,9 +119,10 @@ public class Inicio extends javax.swing.JFrame {
                 actualizarSeleccion(comboBoxMetodosDisponibles, metodos, comboBoxRegresiones);
             }
         });
-        
-        btnInterpolacion.setEnabled(false);
-        btnRegresion.setEnabled(false);
+
+        // Configurar botones deshabilitados con apariencia roja evidente
+        configurarBotonDeshabilitado(btnInterpolacion);
+        configurarBotonDeshabilitado(btnRegresion);
     }
 
     /**
@@ -126,7 +131,8 @@ public class Inicio extends javax.swing.JFrame {
      * regenerated by the Form Editor.
      */
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -168,164 +174,171 @@ public class Inicio extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnInterpolacion)
-                    .addComponent(btnLocRaices))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSisEcuLin)
-                    .addComponent(btnRegresion))
-                .addContainerGap(174, Short.MAX_VALUE))
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnInterpolacion)
+                                        .addComponent(btnLocRaices))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnSisEcuLin)
+                                        .addComponent(btnRegresion))
+                                .addContainerGap(174, Short.MAX_VALUE)));
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLocRaices)
-                    .addComponent(btnSisEcuLin))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInterpolacion)
-                    .addComponent(btnRegresion))
-                .addContainerGap(223, Short.MAX_VALUE))
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnLocRaices)
+                                        .addComponent(btnSisEcuLin))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnInterpolacion)
+                                        .addComponent(btnRegresion))
+                                .addContainerGap(223, Short.MAX_VALUE)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void btnLocRaicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLocRaicesActionPerformed
-        
-        /*
-        comboBoxLocRaices.removeAllItems();
-        comboBoxLocRaices.addItem("Metodos Cerrados");
-        comboBoxLocRaices.addItem("Metodos Abiertos");
 
-        // Crear un panel para contener los componentes
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.add(new JLabel("Seleccione el tipo:"));
-        panel.add(comboBoxLocRaices);
-        panel.add(new JLabel("Seleccione el metodo:"));
-        panel.add(comboBoxMetodosDisponibles);
-        
-        // Mostrar el cuadro de diálogo y capturar la respuesta del usuario
-        int result = JOptionPane.showConfirmDialog(null, panel, "Ingrese el metodo a usar", JOptionPane.OK_CANCEL_OPTION);
-        
-        // Verificar si el usuario presionó "Aceptar" (OK)
-        if (result == JOptionPane.OK_OPTION) {
-            // Obtener el nombre del metodo seleccionado del JComboBox
-            String nombreTipoMetodo = (String) comboBoxLocRaices.getSelectedItem();
-            // Obtener el metodo seleccionado
-            String metodoSelect = (String) comboBoxMetodosDisponibles.getSelectedItem();
-            if ( nombreTipoMetodo.equals(comboBoxLocRaices.getItemAt(0)) ){
-                if ( metodoSelect.equals(metodos[0]) ){
-                    BiseccionFrame biseccion = new BiseccionFrame();
-                    biseccion.setVisible(true);
-                    biseccion.setLocationRelativeTo(null);
-                }
-                else if( metodoSelect.equals(metodos[1]) ){
-                    RegulaFalsiFrame regulaFalsi = new RegulaFalsiFrame();
-                    regulaFalsi.setVisible(true);
-                    regulaFalsi.setLocationRelativeTo(null);
-                }else
-                    JOptionPane.showMessageDialog(this, "No hay metodo coincidente");
-            }else if( nombreTipoMetodo.equals(comboBoxLocRaices.getItemAt(1)) ){
-                if( metodoSelect.equals(metodos[2]) ){
-                    PuntoFijoFrame puntoFijo = new PuntoFijoFrame();
-                    puntoFijo.setVisible(true);
-                    puntoFijo.setLocationRelativeTo(null);
-                }else if( metodoSelect.equals(metodos[3]) ){
-                    NewtonRapsonFrame newtonRapson = new NewtonRapsonFrame();
-                    newtonRapson.setVisible(true);
-                    newtonRapson.setLocationRelativeTo(null);
-                }else if( metodoSelect.equals(metodos[4]) ){
-                    SecanteFrame secante = new SecanteFrame();
-                    secante.setVisible(true);
-                    secante.setLocationRelativeTo(null);
-                }
-            }else
-                JOptionPane.showMessageDialog(this, "Ninguna conincidencia entre el tipo de metodo " + nombreTipoMetodo + " y el metodo " + metodoSelect + " seleccionado");
-        }
-    */
-    LocRaicesFrame locRaicesFrame = new LocRaicesFrame();
-    locRaicesFrame.setVisible(true);
-    locRaicesFrame.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnLocRaicesActionPerformed
+    private void btnLocRaicesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnLocRaicesActionPerformed
 
-    private void btnSisEcuLinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSisEcuLinActionPerformed
         /*
-        comboBoxSisEcuaLin.removeAllItems();
-        comboBoxSisEcuaLin.addItem("Metodos Sistema de Ecuaciones Algebraicas Lineales");
-        comboBoxSisEcuaLin.addItem("Metodos Iterativos para Sistemas de Ecuaciones Lineales");
-        
-        // Crear un panel para contener los componentes
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.add(new JLabel("Seleccione el tipo:"));
-        panel.add(comboBoxSisEcuaLin);
-        panel.add(new JLabel("Seleccione el metodo:"));
-        panel.add(comboBoxMetodosDisponibles);
-        
-        // Mostrar el cuadro de diálogo y capturar la respuesta del usuario
-        int result = JOptionPane.showConfirmDialog(null, panel, "Ingrese el metodo a usar", JOptionPane.OK_CANCEL_OPTION);
-        
-        // Verificar si el usuario presionó "Aceptar" (OK)
-        if (result == JOptionPane.OK_OPTION) {
-            // Obtener el nombre del metodo seleccionado del JComboBox
-            String nombreTipoMetodo = (String) comboBoxSisEcuaLin.getSelectedItem();
-            // Obtener el metodo seleccionado
-            String metodoSelect = (String) comboBoxMetodosDisponibles.getSelectedItem();
-            if ( nombreTipoMetodo.equals(comboBoxSisEcuaLin.getItemAt(0)) ){
-                if ( metodoSelect.equals(metodos[5]) ){
-                    EliminacionGaussianaFrame eliminacionGaussianaFrame = new EliminacionGaussianaFrame();
-                    eliminacionGaussianaFrame.setVisible(true);
-                    eliminacionGaussianaFrame.setLocationRelativeTo(null);
-                }
-                else
-                    JOptionPane.showMessageDialog(this, "No hay metodo coincidente");
-            }else if ( nombreTipoMetodo.equals(comboBoxSisEcuaLin.getItemAt(1)) ){
-                if ( metodoSelect.equals(metodos[6]) ){
-                    // Jacobi
-                    JacobiFrame JacobiFrame = new JacobiFrame();
-                    JacobiFrame.setVisible(true);
-                    JacobiFrame.setLocationRelativeTo(null);
-                }
-                else if( metodoSelect.equals(metodos[7]) ){
-                    // Gauss-Seidel
-                    GaussSeidelFrame gaussSeidelFrame = new GaussSeidelFrame();
-                    gaussSeidelFrame.setVisible(true);
-                    gaussSeidelFrame.setLocationRelativeTo(null);
-                }else
-                    JOptionPane.showMessageDialog(this, "No hay metodo coincidente");
-            }else
-                JOptionPane.showMessageDialog(this, "Ninguna conincidencia entre el tipo de metodo " + nombreTipoMetodo + " y el metodo " + metodoSelect + " seleccionado");
-        }
-        */
+         * comboBoxLocRaices.removeAllItems();
+         * comboBoxLocRaices.addItem("Metodos Cerrados");
+         * comboBoxLocRaices.addItem("Metodos Abiertos");
+         * 
+         * // Crear un panel para contener los componentes
+         * JPanel panel = new JPanel();
+         * panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+         * panel.add(new JLabel("Seleccione el tipo:"));
+         * panel.add(comboBoxLocRaices);
+         * panel.add(new JLabel("Seleccione el metodo:"));
+         * panel.add(comboBoxMetodosDisponibles);
+         * 
+         * // Mostrar el cuadro de diálogo y capturar la respuesta del usuario
+         * int result = JOptionPane.showConfirmDialog(null, panel,
+         * "Ingrese el metodo a usar", JOptionPane.OK_CANCEL_OPTION);
+         * 
+         * // Verificar si el usuario presionó "Aceptar" (OK)
+         * if (result == JOptionPane.OK_OPTION) {
+         * // Obtener el nombre del metodo seleccionado del JComboBox
+         * String nombreTipoMetodo = (String) comboBoxLocRaices.getSelectedItem();
+         * // Obtener el metodo seleccionado
+         * String metodoSelect = (String) comboBoxMetodosDisponibles.getSelectedItem();
+         * if ( nombreTipoMetodo.equals(comboBoxLocRaices.getItemAt(0)) ){
+         * if ( metodoSelect.equals(metodos[0]) ){
+         * BiseccionFrame biseccion = new BiseccionFrame();
+         * biseccion.setVisible(true);
+         * biseccion.setLocationRelativeTo(null);
+         * }
+         * else if( metodoSelect.equals(metodos[1]) ){
+         * RegulaFalsiFrame regulaFalsi = new RegulaFalsiFrame();
+         * regulaFalsi.setVisible(true);
+         * regulaFalsi.setLocationRelativeTo(null);
+         * }else
+         * JOptionPane.showMessageDialog(this, "No hay metodo coincidente");
+         * }else if( nombreTipoMetodo.equals(comboBoxLocRaices.getItemAt(1)) ){
+         * if( metodoSelect.equals(metodos[2]) ){
+         * PuntoFijoFrame puntoFijo = new PuntoFijoFrame();
+         * puntoFijo.setVisible(true);
+         * puntoFijo.setLocationRelativeTo(null);
+         * }else if( metodoSelect.equals(metodos[3]) ){
+         * NewtonRapsonFrame newtonRapson = new NewtonRapsonFrame();
+         * newtonRapson.setVisible(true);
+         * newtonRapson.setLocationRelativeTo(null);
+         * }else if( metodoSelect.equals(metodos[4]) ){
+         * SecanteFrame secante = new SecanteFrame();
+         * secante.setVisible(true);
+         * secante.setLocationRelativeTo(null);
+         * }
+         * }else
+         * JOptionPane.showMessageDialog(this,
+         * "Ninguna conincidencia entre el tipo de metodo " + nombreTipoMetodo +
+         * " y el metodo " + metodoSelect + " seleccionado");
+         * }
+         */
+        LocRaicesFrame locRaicesFrame = new LocRaicesFrame();
+        locRaicesFrame.setVisible(true);
+        locRaicesFrame.setLocationRelativeTo(null);
+    }// GEN-LAST:event_btnLocRaicesActionPerformed
+
+    private void btnSisEcuLinActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSisEcuLinActionPerformed
+        /*
+         * comboBoxSisEcuaLin.removeAllItems();
+         * comboBoxSisEcuaLin.
+         * addItem("Metodos Sistema de Ecuaciones Algebraicas Lineales");
+         * comboBoxSisEcuaLin.
+         * addItem("Metodos Iterativos para Sistemas de Ecuaciones Lineales");
+         * 
+         * // Crear un panel para contener los componentes
+         * JPanel panel = new JPanel();
+         * panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+         * panel.add(new JLabel("Seleccione el tipo:"));
+         * panel.add(comboBoxSisEcuaLin);
+         * panel.add(new JLabel("Seleccione el metodo:"));
+         * panel.add(comboBoxMetodosDisponibles);
+         * 
+         * // Mostrar el cuadro de diálogo y capturar la respuesta del usuario
+         * int result = JOptionPane.showConfirmDialog(null, panel,
+         * "Ingrese el metodo a usar", JOptionPane.OK_CANCEL_OPTION);
+         * 
+         * // Verificar si el usuario presionó "Aceptar" (OK)
+         * if (result == JOptionPane.OK_OPTION) {
+         * // Obtener el nombre del metodo seleccionado del JComboBox
+         * String nombreTipoMetodo = (String) comboBoxSisEcuaLin.getSelectedItem();
+         * // Obtener el metodo seleccionado
+         * String metodoSelect = (String) comboBoxMetodosDisponibles.getSelectedItem();
+         * if ( nombreTipoMetodo.equals(comboBoxSisEcuaLin.getItemAt(0)) ){
+         * if ( metodoSelect.equals(metodos[5]) ){
+         * EliminacionGaussianaFrame eliminacionGaussianaFrame = new
+         * EliminacionGaussianaFrame();
+         * eliminacionGaussianaFrame.setVisible(true);
+         * eliminacionGaussianaFrame.setLocationRelativeTo(null);
+         * }
+         * else
+         * JOptionPane.showMessageDialog(this, "No hay metodo coincidente");
+         * }else if ( nombreTipoMetodo.equals(comboBoxSisEcuaLin.getItemAt(1)) ){
+         * if ( metodoSelect.equals(metodos[6]) ){
+         * // Jacobi
+         * JacobiFrame JacobiFrame = new JacobiFrame();
+         * JacobiFrame.setVisible(true);
+         * JacobiFrame.setLocationRelativeTo(null);
+         * }
+         * else if( metodoSelect.equals(metodos[7]) ){
+         * // Gauss-Seidel
+         * GaussSeidelFrame gaussSeidelFrame = new GaussSeidelFrame();
+         * gaussSeidelFrame.setVisible(true);
+         * gaussSeidelFrame.setLocationRelativeTo(null);
+         * }else
+         * JOptionPane.showMessageDialog(this, "No hay metodo coincidente");
+         * }else
+         * JOptionPane.showMessageDialog(this,
+         * "Ninguna conincidencia entre el tipo de metodo " + nombreTipoMetodo +
+         * " y el metodo " + metodoSelect + " seleccionado");
+         * }
+         */
         SistematEcuacionesLinealesFrame ecuacionesLinealesFrame = new SistematEcuacionesLinealesFrame();
         ecuacionesLinealesFrame.setVisible(true);
         ecuacionesLinealesFrame.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnSisEcuLinActionPerformed
+    }// GEN-LAST:event_btnSisEcuLinActionPerformed
 
-    private void btnInterpolacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInterpolacionActionPerformed
+    private void btnInterpolacionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnInterpolacionActionPerformed
         comboBoxInterpolaciones.removeAllItems();
         comboBoxInterpolaciones.addItem("Metodos de Interpolacion");
         comboBoxInterpolaciones.addItem("Metodos de Interpolacion Segmentaria");
-        
+
         // Crear un panel para contener los componentes
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -333,47 +346,47 @@ public class Inicio extends javax.swing.JFrame {
         panel.add(comboBoxInterpolaciones);
         panel.add(new JLabel("Seleccione el metodo:"));
         panel.add(comboBoxMetodosDisponibles);
-        
+
         // Mostrar el cuadro de diálogo y capturar la respuesta del usuario
-        int result = JOptionPane.showConfirmDialog(null, panel, "Ingrese el metodo a usar", JOptionPane.OK_CANCEL_OPTION);
-        
+        int result = JOptionPane.showConfirmDialog(null, panel, "Ingrese el metodo a usar",
+                JOptionPane.OK_CANCEL_OPTION);
+
         // Verificar si el usuario presionó "Aceptar" (OK)
         if (result == JOptionPane.OK_OPTION) {
             // Obtener el nombre del metodo seleccionado del JComboBox
             String nombreTipoMetodo = (String) comboBoxInterpolaciones.getSelectedItem();
             // Obtener el metodo seleccionado
             String metodoSelect = (String) comboBoxMetodosDisponibles.getSelectedItem();
-            if ( nombreTipoMetodo.equals(comboBoxInterpolaciones.getItemAt(0)) ){
-                //Interpolacion comun
-                if ( metodoSelect.equals(metodos[8]) ){
-                    //Lagrange
+            if (nombreTipoMetodo.equals(comboBoxInterpolaciones.getItemAt(0))) {
+                // Interpolacion comun
+                if (metodoSelect.equals(metodos[8])) {
+                    // Lagrange
                     LagrangeFrame lagrangeFrame = new LagrangeFrame();
                     lagrangeFrame.setVisible(true);
                     lagrangeFrame.setLocationRelativeTo(null);
-                }
-                else if ( metodoSelect.equals(metodos[9]) ){
+                } else if (metodoSelect.equals(metodos[9])) {
                     // Polinomial
                     PolinomialFrame polinomialFrame = new PolinomialFrame();
                     polinomialFrame.setVisible(true);
                     polinomialFrame.setLocationRelativeTo(null);
-                }
-                else
+                } else
                     JOptionPane.showMessageDialog(this, "No hay metodo coincidente");
-            }else if ( nombreTipoMetodo.equals(comboBoxInterpolaciones.getItemAt(1)) ){
-                 if( metodoSelect.equals(metodos[10]) ){
+            } else if (nombreTipoMetodo.equals(comboBoxInterpolaciones.getItemAt(1))) {
+                if (metodoSelect.equals(metodos[10])) {
                     // Spline --> Segmentaria
                     JOptionPane.showMessageDialog(this, "No hay desarrollado todavia");
-                }else
+                } else
                     JOptionPane.showMessageDialog(this, "No hay metodo coincidente");
-            }else
-                JOptionPane.showMessageDialog(this, "Ninguna conincidencia entre el tipo de metodo " + nombreTipoMetodo + " y el metodo " + metodoSelect + " seleccionado");
+            } else
+                JOptionPane.showMessageDialog(this, "Ninguna conincidencia entre el tipo de metodo " + nombreTipoMetodo
+                        + " y el metodo " + metodoSelect + " seleccionado");
         }
-    }//GEN-LAST:event_btnInterpolacionActionPerformed
+    }// GEN-LAST:event_btnInterpolacionActionPerformed
 
-    private void btnRegresionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresionActionPerformed
+    private void btnRegresionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegresionActionPerformed
         comboBoxRegresiones.removeAllItems();
         comboBoxRegresiones.addItem("Metodos de Regresioncion");
-        
+
         // Crear un panel para contener los componentes
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -381,37 +394,66 @@ public class Inicio extends javax.swing.JFrame {
         panel.add(comboBoxRegresiones);
         panel.add(new JLabel("Seleccione el metodo:"));
         panel.add(comboBoxMetodosDisponibles);
-        
+
         // Mostrar el cuadro de diálogo y capturar la respuesta del usuario
-        int result = JOptionPane.showConfirmDialog(null, panel, "Ingrese el metodo a usar", JOptionPane.OK_CANCEL_OPTION);
-        
+        int result = JOptionPane.showConfirmDialog(null, panel, "Ingrese el metodo a usar",
+                JOptionPane.OK_CANCEL_OPTION);
+
         // Verificar si el usuario presionó "Aceptar" (OK)
         if (result == JOptionPane.OK_OPTION) {
             // Obtener el nombre del metodo seleccionado del JComboBox
             String nombreTipoMetodo = (String) comboBoxRegresiones.getSelectedItem();
             // Obtener el metodo seleccionado
             String metodoSelect = (String) comboBoxMetodosDisponibles.getSelectedItem();
-            if ( nombreTipoMetodo.equals(comboBoxRegresiones.getItemAt(0)) ){
-                //Interpolacion comun
-                if ( metodoSelect.equals(metodos[10]) ){
-                    //Lineal
+            if (nombreTipoMetodo.equals(comboBoxRegresiones.getItemAt(0))) {
+                // Interpolacion comun
+                if (metodoSelect.equals(metodos[10])) {
+                    // Lineal
                     RegresionLinealFrame regresionLinealFrame = new RegresionLinealFrame();
                     regresionLinealFrame.setVisible(true);
                     regresionLinealFrame.setLocationRelativeTo(null);
-                }
-                else if ( metodoSelect.equals(metodos[11]) ){
+                } else if (metodoSelect.equals(metodos[11])) {
                     // Polinomial
                     RegresionPolinomialFrame regresionPolinomialFrame = new RegresionPolinomialFrame();
                     regresionPolinomialFrame.setVisible(true);
                     regresionPolinomialFrame.setLocationRelativeTo(null);
-                }
-                else
+                } else
                     JOptionPane.showMessageDialog(this, "No hay metodo coincidente");
-            }else
-                JOptionPane.showMessageDialog(this, "Ninguna conincidencia entre el tipo de metodo " + nombreTipoMetodo + " y el metodo " + metodoSelect + " seleccionado");
+            } else
+                JOptionPane.showMessageDialog(this, "Ninguna conincidencia entre el tipo de metodo " + nombreTipoMetodo
+                        + " y el metodo " + metodoSelect + " seleccionado");
         }
-    }//GEN-LAST:event_btnRegresionActionPerformed
+    }// GEN-LAST:event_btnRegresionActionPerformed
 
+    /**
+     * Configura un botón deshabilitado para que sea claramente visible en rojo
+     * @param boton El botón a configurar como deshabilitado
+     */
+    private void configurarBotonDeshabilitado(JButton boton) {
+        // Deshabilitar el botón
+        boton.setEnabled(false);
+        
+        // Configurar colores para que sean evidentes
+        boton.setBackground(new Color(220, 53, 69)); // Rojo Bootstrap (danger)
+        boton.setForeground(Color.WHITE); // Texto blanco
+        
+        // Hacer el botón opaco para que se vea el color de fondo
+        boton.setOpaque(true);
+        
+        // Agregar un borde rojo más oscuro para mayor énfasis
+        Border bordePrincipal = BorderFactory.createLineBorder(new Color(176, 42, 55), 2);
+        Border bordeInterno = BorderFactory.createEmptyBorder(5, 10, 5, 10);
+        boton.setBorder(BorderFactory.createCompoundBorder(bordePrincipal, bordeInterno));
+        
+        // Cambiar el cursor para indicar que no está disponible
+        boton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        
+        // Agregar texto explicativo en el tooltip
+        boton.setToolTipText("Esta función no está disponible aún");
+        
+        // Forzar repintado
+        boton.repaint();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInterpolacion;
