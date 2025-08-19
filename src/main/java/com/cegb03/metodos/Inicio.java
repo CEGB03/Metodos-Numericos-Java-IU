@@ -115,6 +115,9 @@ public class Inicio extends javax.swing.JFrame {
                 actualizarSeleccion(comboBoxMetodosDisponibles, metodos, comboBoxRegresiones);
             }
         });
+        
+        btnInterpolacion.setEnabled(false);
+        btnRegresion.setEnabled(false);
     }
 
     /**

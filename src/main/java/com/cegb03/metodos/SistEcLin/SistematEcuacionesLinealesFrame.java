@@ -1,6 +1,5 @@
 package com.cegb03.metodos.SistEcLin;
 
-import com.cegb03.metodos.SistEcLin.GaussSeidelCode;
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,10 +8,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -63,7 +59,6 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
      */
     public SistematEcuacionesLinealesFrame() {
         initComponents();
-        btnCargarArchivoAlgebraico.setEnabled(false);
         btnCargarArchivoIterativo.setEnabled(false);
         btnCalcular.setEnabled(false);
         txtTol.setEnabled(false);
@@ -83,7 +78,6 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnCargarArchivoAlgebraico = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -99,13 +93,6 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
         btnCargarArchivoIterativo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        btnCargarArchivoAlgebraico.setText("Cargar Archivo Alge");
-        btnCargarArchivoAlgebraico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCargarArchivoAlgebraicoActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("Metodos de Sistema de Ecuaciones Algebraicas Lineales y Sistema de Ecuaciones Lineales Iterativos");
 
@@ -166,7 +153,7 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
             }
         });
 
-        btnCargarArchivoIterativo.setText("Cargar Archivo Itera");
+        btnCargarArchivoIterativo.setText("Cargar Archivos");
         btnCargarArchivoIterativo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCargarArchivoIterativoActionPerformed(evt);
@@ -177,64 +164,55 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(btnCheckEliGauss)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCheckJacobi)
-                .addGap(141, 141, 141)
-                .addComponent(btnCheckGaussSeidel)
-                .addGap(60, 60, 60))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addComponent(btnVolver)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnVolver))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 70, Short.MAX_VALUE)
-                                .addComponent(jLabel1)
-                                .addGap(10, 10, 10)))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtRelajacion)
-                            .addComponent(txtTol, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(10, 10, 10))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnCheckEliGauss)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnCargarArchivoAlgebraico)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnCargarArchivoIterativo)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtRelajacion)
+                                    .addComponent(txtTol, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(103, 103, 103))))))
+                                .addComponent(btnCheckJacobi)
+                                .addGap(77, 77, 77)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCargarArchivoIterativo)
+                            .addComponent(btnCheckGaussSeidel))
+                        .addGap(34, 34, 34)))
+                .addGap(6, 6, 6))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCheckEliGauss)
+                    .addComponent(btnCheckGaussSeidel)
                     .addComponent(btnCheckJacobi)
-                    .addComponent(btnCheckGaussSeidel))
-                .addGap(8, 8, 8)
+                    .addComponent(btnCheckEliGauss))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtTol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCargarArchivoAlgebraico)
                     .addComponent(btnCargarArchivoIterativo))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -262,10 +240,6 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCargarArchivoAlgebraicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarArchivoAlgebraicoActionPerformed
-        loadMatrixFromFile();
-        //System.out.println("loadMatrixFromFile() fin");
-    }//GEN-LAST:event_btnCargarArchivoAlgebraicoActionPerformed
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
@@ -285,8 +259,6 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
                                          btnCheckGaussSeidel.isSelected();
         btnCargarArchivoIterativo.setEnabled(algunMetodoSeleccionado);
         
-        // Mantener compatibilidad con el botón separado si existe
-        btnCargarArchivoAlgebraico.setEnabled(btnCheckEliGauss.isSelected());       
     }//GEN-LAST:event_btnCheckEliGaussActionPerformed
 
     private void btnCheckJacobiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckJacobiActionPerformed
@@ -1003,7 +975,6 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
-    private javax.swing.JButton btnCargarArchivoAlgebraico;
     private javax.swing.JButton btnCargarArchivoIterativo;
     private javax.swing.JCheckBox btnCheckEliGauss;
     private javax.swing.JCheckBox btnCheckGaussSeidel;

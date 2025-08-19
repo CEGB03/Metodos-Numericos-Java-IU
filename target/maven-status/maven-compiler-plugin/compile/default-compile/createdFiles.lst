@@ -65,7 +65,6 @@ com/cegb03/metodos/MetodosNumericos.class
 com/cegb03/metodos/LocRaices/Abiertos/SecanteCode.class
 com/cegb03/metodos/LocRaices/LocRaicesFrame$10.class
 com/cegb03/metodos/SistEcLin/JacobiFrame$2.class
-com/cegb03/metodos/SistEcLin/SistematEcuacionesLinealesFrame$9.class
 com/cegb03/metodos/SistEcLin/SistematEcuacionesLinealesFrame$4.class
 com/cegb03/metodos/Inicio$5.class
 com/cegb03/metodos/LocRaices/Abiertos/PuntoFijoFrame$1.class
