@@ -1,4 +1,4 @@
-package com.cegb03.metodos.LocRaices.Abiertos;
+package com.cegb03.metodos.LocRaices.Codes;
 
 import com.cegb03.metodos.calculos.Derivar;
 import java.text.DecimalFormat;

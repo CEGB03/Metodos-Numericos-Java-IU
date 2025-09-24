@@ -59,13 +59,13 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
      */
     public SistematEcuacionesLinealesFrame() {
         initComponents();
-        btnCargarArchivoIterativo.setEnabled(false);
+        btnCargarArchivo.setEnabled(false);
         btnCalcular.setEnabled(false);
         txtTol.setEnabled(false);
         txtRelajacion.setEnabled(false);
         
         // Cambiar el texto del botón para reflejar su nueva funcionalidad unificada
-        btnCargarArchivoIterativo.setText("Cargar Archivos");
+        btnCargarArchivo.setText("Cargar Archivos");
     }
 
     /**
@@ -90,7 +90,7 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
         btnCheckJacobi = new javax.swing.JCheckBox();
         btnCheckGaussSeidel = new javax.swing.JCheckBox();
         btnCalcular = new javax.swing.JButton();
-        btnCargarArchivoIterativo = new javax.swing.JButton();
+        btnCargarArchivo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,10 +153,10 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
             }
         });
 
-        btnCargarArchivoIterativo.setText("Cargar Archivos");
-        btnCargarArchivoIterativo.addActionListener(new java.awt.event.ActionListener() {
+        btnCargarArchivo.setText("Cargar Archivos");
+        btnCargarArchivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCargarArchivoIterativoActionPerformed(evt);
+                btnCargarArchivoActionPerformed(evt);
             }
         });
 
@@ -194,7 +194,7 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
                                 .addGap(77, 77, 77)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCargarArchivoIterativo)
+                            .addComponent(btnCargarArchivo)
                             .addComponent(btnCheckGaussSeidel))
                         .addGap(34, 34, 34)))
                 .addGap(6, 6, 6))
@@ -213,7 +213,7 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtTol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCargarArchivoIterativo))
+                    .addComponent(btnCargarArchivo))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -257,7 +257,7 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
         boolean algunMetodoSeleccionado = btnCheckEliGauss.isSelected() || 
                                          btnCheckJacobi.isSelected() || 
                                          btnCheckGaussSeidel.isSelected();
-        btnCargarArchivoIterativo.setEnabled(algunMetodoSeleccionado);
+        btnCargarArchivo.setEnabled(algunMetodoSeleccionado);
         
     }//GEN-LAST:event_btnCheckEliGaussActionPerformed
 
@@ -268,7 +268,7 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
                                          btnCheckGaussSeidel.isSelected();
         boolean activoTolerancia = btnCheckJacobi.isSelected() || btnCheckGaussSeidel.isSelected();
         
-        btnCargarArchivoIterativo.setEnabled(algunMetodoSeleccionado);
+        btnCargarArchivo.setEnabled(algunMetodoSeleccionado);
         txtTol.setEnabled(activoTolerancia);
     }//GEN-LAST:event_btnCheckJacobiActionPerformed
 
@@ -279,7 +279,7 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
                                          btnCheckGaussSeidel.isSelected();
         boolean activoTolerancia = btnCheckJacobi.isSelected() || btnCheckGaussSeidel.isSelected();
         
-        btnCargarArchivoIterativo.setEnabled(algunMetodoSeleccionado);
+        btnCargarArchivo.setEnabled(algunMetodoSeleccionado);
         txtTol.setEnabled(activoTolerancia);
         txtRelajacion.setEnabled(btnCheckGaussSeidel.isSelected());
     }//GEN-LAST:event_btnCheckGaussSeidelActionPerformed
@@ -348,7 +348,7 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
                     "   Motivo: La matriz no cumple las condiciones de convergencia.\n" +
                     "   Solución: Use Eliminación Gaussiana en su lugar.\n");
             } else {
-                txtAResultados.setText(txtAResultados.getText()+"\n"+resultado);
+                txtAResultados.setText(txtAResultados.getText()+"\n"+"        Jacobi:\n"+resultado);
             }
 
             System.out.println("Fin Jacobi");
@@ -423,7 +423,7 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCalcularActionPerformed
 
-    private void btnCargarArchivoIterativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarArchivoIterativoActionPerformed
+    private void btnCargarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarArchivoActionPerformed
         tolerancia = Double.valueOf(txtTol.getText());
         
         // Determinar qué métodos están seleccionados
@@ -447,7 +447,7 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
                                         "Ningún método seleccionado", JOptionPane.WARNING_MESSAGE);
         }
         //System.out.println("loadMatrixFromFile() fin");
-    }//GEN-LAST:event_btnCargarArchivoIterativoActionPerformed
+    }//GEN-LAST:event_btnCargarArchivoActionPerformed
 
     private void loadSeparateFilesForIterativeMethods() {
         boolean jacobiLoaded = false;
@@ -975,7 +975,7 @@ public class SistematEcuacionesLinealesFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
-    private javax.swing.JButton btnCargarArchivoIterativo;
+    private javax.swing.JButton btnCargarArchivo;
     private javax.swing.JCheckBox btnCheckEliGauss;
     private javax.swing.JCheckBox btnCheckGaussSeidel;
     private javax.swing.JCheckBox btnCheckJacobi;

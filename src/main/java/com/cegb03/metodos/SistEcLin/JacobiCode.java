@@ -36,7 +36,7 @@ public class JacobiCode {
     public String eliminar(){
         boolean check = diagonalmenteDominante(a, filas, calculos);
         if (!check)
-            return calculos + "\nMatriz no diagonalmente dominante.";
+            return calculos + "\nMatriz no diagonalmente dominante.\n";
 
         Double suma = 0.0;
         xNuevo = new Double[filas];
@@ -70,7 +70,7 @@ public class JacobiCode {
             if (filas >= 0) System.arraycopy(xNuevo, 0, xViejo, 0, filas);
         } while (error > tolerancia && iteraciones < 10000);
 
-        calculos += ("\n El resultado es: \nxnuevo = [  ");
+        calculos += ("El resultado es: \nxnuevo = [  ");
         for (int i = 0; i < filas; i++) {
             calculos += (xNuevo[i]+",    ");
         }

@@ -24,8 +24,8 @@ namespace MetodosNumericosLauncher
         private const string JAR_NAME = "MetodosNumericos.jar";
         
         private static readonly string CacheDir = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), 
-            "MetodosNumericos"
+            Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+            "metodos-numericos"
         );
         private static readonly string JarPath = Path.Combine(CacheDir, JAR_NAME);
 

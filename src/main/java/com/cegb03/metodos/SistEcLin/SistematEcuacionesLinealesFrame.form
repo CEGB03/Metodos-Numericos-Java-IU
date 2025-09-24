@@ -76,7 +76,7 @@
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btnCalcular" min="-2" pref="118" max="-2" attributes="0"/>
-                              <Component id="btnCargarArchivoIterativo" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnCargarArchivo" min="-2" max="-2" attributes="0"/>
                               <Component id="btnCheckGaussSeidel" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
@@ -101,7 +101,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtTol" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnCargarArchivoIterativo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnCargarArchivo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -203,12 +203,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcularActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnCargarArchivoIterativo">
+        <Component class="javax.swing.JButton" name="btnCargarArchivo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cargar Archivos"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCargarArchivoIterativoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCargarArchivoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -34,9 +34,9 @@ REM Fallback: descargar y ejecutar directamente
 echo Descargando launcher PowerShell...
 echo.
 
-REM Crear directorio temporal
-set TEMP_DIR=%TEMP%\MetodosNumericos
-if not exist "%TEMP_DIR%" mkdir "%TEMP_DIR%"
+set CACHE_DIR=%~dp0metodos-numericos
+set JAR_PATH=%CACHE_DIR%\MetodosNumericos.jar
+if not exist "%CACHE_DIR%" mkdir "%CACHE_DIR%"
 
 REM Descargar launcher PowerShell
 powershell -Command "& {Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/cegb03/Metodos-Numericos-Java-IU/main/metodos-numericos-launcher.ps1' -OutFile '%TEMP_DIR%\metodos-numericos-launcher.ps1' -ErrorAction Stop}"

@@ -858,6 +858,9 @@ public class Derivar {
         
         s = s.trim();
         
+        // NUEVA FUNCIONALIDAD: Evaluar expresiones aritméticas básicas
+        s = evaluarOperacionesAritmeticasBasicas(s);
+        
         // Solo aplicar simplificaciones básicas y SEGURAS
         // NO usar regex complejos que puedan corromper nombres de funciones
         
@@ -883,6 +886,111 @@ public class Derivar {
         s = s.replaceAll("\\*\\*+", "*");
         
         return s.isEmpty() ? "0" : s;
+    }
+    
+    /**
+     * Evalúa operaciones aritméticas básicas como 2-1, 3+5, 10*2, 8/4, etc.
+     * Solo opera con números enteros y decimales simples, sin variables.
+     */
+    private static String evaluarOperacionesAritmeticasBasicas(String expresion) {
+        if (expresion == null || expresion.trim().isEmpty()) return "0";
+        
+        expresion = expresion.trim();
+        
+        // Verificar si es solo una operación aritmética simple (sin variables ni funciones)
+        // Patrones: "2-1", "3+5", "10*2", "8/4", "2.5+1.3", etc.
+        String patronOperacionSimple = "^(-?\\d+(?:\\.\\d+)?)\\s*([+\\-*/])\\s*(-?\\d+(?:\\.\\d+)?)$";
+        Pattern pattern = Pattern.compile(patronOperacionSimple);
+        Matcher matcher = pattern.matcher(expresion);
+        
+        if (matcher.matches()) {
+            try {
+                double num1 = Double.parseDouble(matcher.group(1));
+                String operador = matcher.group(2);
+                double num2 = Double.parseDouble(matcher.group(3));
+                
+                double resultado;
+                switch (operador) {
+                    case "+":
+                        resultado = num1 + num2;
+                        break;
+                    case "-":
+                        resultado = num1 - num2;
+                        break;
+                    case "*":
+                        resultado = num1 * num2;
+                        break;
+                    case "/":
+                        if (num2 == 0) return expresion; // No dividir por cero
+                        resultado = num1 / num2;
+                        break;
+                    default:
+                        return expresion; // No debería llegar aquí
+                }
+                
+                // Si el resultado es un entero, devolverlo como entero
+                if (resultado == (long) resultado) {
+                    return String.valueOf((long) resultado);
+                } else {
+                    return String.valueOf(resultado);
+                }
+                
+            } catch (NumberFormatException e) {
+                // Si hay error en el parseo, devolver la expresión original
+                return expresion;
+            }
+        }
+        
+        // Evaluar múltiples operaciones simples en secuencia (ej: "2+3-1")
+        expresion = evaluarOperacionesSecuenciales(expresion);
+        
+        return expresion;
+    }
+    
+    /**
+     * Evalúa operaciones secuenciales como "2+3-1", "10-5+2", etc.
+     */
+    private static String evaluarOperacionesSecuenciales(String expresion) {
+        // Solo procesar si contiene únicamente números y operadores básicos
+        if (!expresion.matches("^[\\d+\\-*/.\\s]+$")) {
+            return expresion; // Contiene variables o funciones, no evaluar
+        }
+        
+        try {
+            // Usar una evaluación simple sin bibliotecas externas
+            // Para casos básicos como "2-1", "3+5-2", etc.
+            
+            // Reemplazar espacios
+            expresion = expresion.replaceAll("\\s+", "");
+            
+            // Solo evaluar si es una expresión muy simple
+            if (expresion.matches("^\\d+([+\\-]\\d+)*$")) {
+                // Evaluar suma y resta de izquierda a derecha
+                String[] partes = expresion.split("(?=[+\\-])");
+                double resultado = Double.parseDouble(partes[0]);
+                
+                for (int i = 1; i < partes.length; i++) {
+                    String parte = partes[i];
+                    if (parte.startsWith("+")) {
+                        resultado += Double.parseDouble(parte.substring(1));
+                    } else if (parte.startsWith("-")) {
+                        resultado -= Double.parseDouble(parte.substring(1));
+                    }
+                }
+                
+                // Devolver como entero si es posible
+                if (resultado == (long) resultado) {
+                    return String.valueOf((long) resultado);
+                } else {
+                    return String.valueOf(resultado);
+                }
+            }
+            
+        } catch (Exception e) {
+            // En caso de error, devolver la expresión original
+        }
+        
+        return expresion;
     }
     
     // Método específico para corregir conectividad entre términos

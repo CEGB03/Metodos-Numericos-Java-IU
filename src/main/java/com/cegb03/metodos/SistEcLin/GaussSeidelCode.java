@@ -28,7 +28,7 @@ public class GaussSeidelCode {
     public String sinRelajacion(){
         boolean check = diagonalmenteDominante(a,filas, calculos);
         if(!check)
-            return calculos + "\nMatriz no diagonalmente dominante.";
+            return calculos + "\nMatriz no diagonalmente dominante.\n ";
 
         Double suma = 0.0;
         xNuevo = new Double[filas];
@@ -74,7 +74,7 @@ public class GaussSeidelCode {
             System.arraycopy(xNuevo, 0, xViejo, 0, filas);
         } while (error > tolerancia && iteraciones < 10000);
 
-        calculos += ("\n El resultado es: \nxnuevo = [\t");
+        calculos += ("El resultado es: \nxnuevo = [\t");
         for (int i = 0; i < filas; i++) {
             calculos += (xNuevo[i]+",    ");
         }
@@ -92,7 +92,7 @@ public class GaussSeidelCode {
         System.out.println("tolerancia " + tolerancia);
         boolean check = diagonalmenteDominante(a,filas, calculos);
         if(!check)
-            return calculos + "\nMatriz no diagonalmente dominante.";
+            return calculos + "\nMatriz no diagonalmente dominante.\n ";
 
         Double suma = 0.0;
         xNuevo = new Double[filas];
@@ -140,7 +140,7 @@ public class GaussSeidelCode {
             System.arraycopy(xNuevo, 0, xViejo, 0, filas);
         } while (error > tolerancia && iteraciones < 10000);
 
-        calculos += ("\n El resultado es: \nxnuevo = [  ");
+        calculos += ("El resultado es: \nxnuevo = [  ");
         for (int i = 0; i < filas; i++) {
             calculos += (xNuevo[i]+",    ");
         }
@@ -165,10 +165,10 @@ public class GaussSeidelCode {
             }
 
             if(Math.abs(a[i][i]) < suma)
-                calculos += ("\nLa matriz no es diagonalmente dominante. Fila: "+counter+".");
+                calculos += ("La matriz no es diagonalmente dominante. Fila: "+counter+".\n");
 
             if(a[i][i] == 0){
-                calculos += ("\nCeros en la diagonal");
+                calculos += ("Ceros en la diagonal\n");
                 return false;
             }
         }

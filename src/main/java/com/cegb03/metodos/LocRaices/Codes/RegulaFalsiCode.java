@@ -1,4 +1,4 @@
-package com.cegb03.metodos.LocRaices.Cerrados;
+package com.cegb03.metodos.LocRaices.Codes;
 
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;

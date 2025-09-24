@@ -13,7 +13,7 @@ param(
 $RepoOwner = "cegb03"
 $RepoName = "Metodos-Numericos-Java-IU"
 $AppName = "Métodos Numéricos"
-$CacheDir = "$env:LOCALAPPDATA\MetodosNumericos"
+$CacheDir = Join-Path (Get-Location) "metodos-numericos"  # Cambio a directorio local
 $JarName = "MetodosNumericos.jar"
 $JarPath = "$CacheDir\$JarName"
 
